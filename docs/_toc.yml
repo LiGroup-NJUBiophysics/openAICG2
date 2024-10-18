@@ -1,0 +1,20 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Installation
+    chapters:
+    - file: installation 
+  - caption: API Reference
+    chapters:
+    - file: api_model
+    - file: api_functionterm
+    - file: api_utils 
+    - file: api_enhance_sampling
+  - caption: Example
+    chapters:
+    - file: main_sh3 
+    - file: main_amyloid42_gyration
+

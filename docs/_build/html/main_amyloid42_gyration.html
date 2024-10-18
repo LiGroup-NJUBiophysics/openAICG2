@@ -1,0 +1,660 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Example 2. Simulating the Amyloid \(\beta 42\) monomer. &#8212; OpenAICG2</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=e1a75a79"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'main_amyloid42_gyration';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Example 1. protein sh3 based on one bead model" href="main_sh3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="OpenAICG2 - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="OpenAICG2 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to OpenAICG2+’s documentation
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="api_model.html">Model API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_functionterm.html">Force functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_enhance_sampling.html">Enhanced sampling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Example</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="main_sh3.html">Example 1. protein sh3 based on one bead model</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Example 2. Simulating the Amyloid <span class="math notranslate nohighlight">\(\beta 42\)</span> monomer.</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href=" https://github.com/LiGroup-NJUBiophysics/openAICG2" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/main_amyloid42_gyration.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Example 2. Simulating the Amyloid \beta 42 monomer.</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-simulation">Set simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-radius-of-gyration-r-g">Compute the radius of gyration <span class="math notranslate nohighlight">\(R_{g}\)</span></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="example-2-simulating-the-amyloid-beta-42-monomer">
+<h1>Example 2. Simulating the Amyloid <span class="math notranslate nohighlight">\(\beta 42\)</span> monomer.<a class="headerlink" href="#example-2-simulating-the-amyloid-beta-42-monomer" title="Link to this heading">#</a></h1>
+<section id="set-simulation">
+<h2>Set simulation<a class="headerlink" href="#set-simulation" title="Link to this heading">#</a></h2>
+<p>This example will demonstrate how to create a two-bead coarse-grained model using the default AICG2+ force field of OpenAICG2. We choose the Amyloid <span class="math notranslate nohighlight">\(\beta 42\)</span> monomer as the model protein. The Amyloid <span class="math notranslate nohighlight">\(\beta 42\)</span> monomer is an IDP (intrinsically disordered protein), with most of its structure being unordered. However, when its monomer concentration exceeds the critical concentration, Amyloid <span class="math notranslate nohighlight">\(\beta 42\)</span> will aggregate and deposit, forming relatively ordered structures. Next, we will use OpenAICG2 to run a Langevin dynamics simulation to calculate its radius of gyration.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add required packages</span>
+<span class="kn">import</span> <span class="nn">openmm</span> <span class="k">as</span> <span class="nn">mm</span>
+<span class="kn">from</span> <span class="nn">openmm</span> <span class="kn">import</span> <span class="n">app</span>
+<span class="kn">from</span> <span class="nn">openmm</span> <span class="kn">import</span> <span class="n">unit</span>
+<span class="kn">import</span> <span class="nn">mdtraj</span> <span class="k">as</span> <span class="nn">md</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="kn">from</span> <span class="nn">openaicg2.forcefield.aicgmodel</span> <span class="kn">import</span> <span class="n">AICG2Model</span>
+<span class="kn">from</span> <span class="nn">openaicg2</span> <span class="kn">import</span> <span class="n">utils</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Load the parameters required for the simulation, including temperature, friction coefficient, time step, total simulation time, total number of steps, trajectory recording interval, output file name, etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load simulation parameters from json file</span>
+<span class="n">simu_params_path</span> <span class="o">=</span> <span class="s1">&#39;../input/simulationparams.json&#39;</span>
+<span class="n">configure_params</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">simu_params_path</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">))</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">configure_params</span><span class="p">[</span><span class="s1">&#39;Temperature&#39;</span><span class="p">]</span> 
+<span class="n">friction</span> <span class="o">=</span> <span class="n">configure_params</span><span class="p">[</span><span class="s1">&#39;friction&#39;</span><span class="p">]</span>
+<span class="n">timestep</span> <span class="o">=</span> <span class="n">configure_params</span><span class="p">[</span><span class="s1">&#39;timestep&#39;</span><span class="p">]</span>
+<span class="n">tot_simu_steps</span> <span class="o">=</span> <span class="n">configure_params</span><span class="p">[</span><span class="s1">&#39;total_mdsteps&#39;</span><span class="p">]</span>
+<span class="n">report_period</span> <span class="o">=</span> <span class="n">configure_params</span><span class="p">[</span><span class="s1">&#39;report_period&#39;</span><span class="p">]</span>
+<span class="n">output_file</span> <span class="o">=</span> <span class="n">configure_params</span><span class="p">[</span><span class="s1">&#39;output_file_name&#39;</span><span class="p">]</span>
+<span class="n">platform_type</span> <span class="o">=</span> <span class="n">configure_params</span><span class="p">[</span><span class="s1">&#39;platform_type&#39;</span><span class="p">]</span>
+<span class="n">initial_pdb_path</span> <span class="o">=</span> <span class="n">configure_params</span><span class="p">[</span><span class="s1">&#39;initial_pdb&#39;</span><span class="p">]</span>
+<span class="n">monomer_psf_path</span> <span class="o">=</span> <span class="n">configure_params</span><span class="p">[</span><span class="s1">&#39;monomer_psf&#39;</span><span class="p">]</span>
+<span class="n">box</span> <span class="o">=</span> <span class="n">configure_params</span><span class="p">[</span><span class="s1">&#39;box_vector&#39;</span><span class="p">]</span>
+<span class="n">native_info_path</span> <span class="o">=</span> <span class="n">configure_params</span><span class="p">[</span><span class="s1">&#39;native_information&#39;</span><span class="p">]</span>
+<span class="n">lambdakh_scale</span> <span class="o">=</span> <span class="n">configure_params</span><span class="p">[</span><span class="s1">&#39;lambdakh_scale&#39;</span><span class="p">]</span>
+<span class="n">cutoff_kh</span> <span class="o">=</span> <span class="n">configure_params</span><span class="p">[</span><span class="s1">&#39;cutoff_kh&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Initialize the topology from the PDB and PSF files (if the PDB file includes the CONNECT section, you do not need to load the PSF to complete the topology in the PDB).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load pdb and psf</span>
+<span class="n">pdb</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">initial_pdb_path</span><span class="p">)</span> 
+<span class="n">psf</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">load_psf</span><span class="p">(</span><span class="n">monomer_psf_path</span><span class="p">)</span>
+<span class="n">top</span> <span class="o">=</span> <span class="n">pdb</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">to_openmm</span><span class="p">()</span>
+<span class="n">top</span><span class="o">.</span><span class="n">_bonds</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">bonds</span> <span class="o">=</span> <span class="n">psf</span><span class="o">.</span><span class="n">_bonds</span>
+<span class="c1"># Refine the bond in topology</span>
+<span class="n">redefine_top</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">RedefineTopology</span><span class="p">()</span>
+<span class="n">redefine_top</span><span class="o">.</span><span class="n">redefine_bond</span><span class="p">(</span><span class="n">top</span><span class="p">,</span><span class="n">bonds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">ParserNinfo</span></code> in the utils to parse the native information file to obtain the force field parameters and store them in the <code class="docutils literal notranslate"><span class="pre">ParserNinfo</span></code> class variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load parameter in native information file</span>
+<span class="n">ParserNinfo</span><span class="o">=</span><span class="n">utils</span><span class="o">.</span><span class="n">ParserNinfo</span><span class="p">()</span>
+<span class="n">ParserNinfo</span><span class="o">.</span><span class="n">get_ninfo</span><span class="p">(</span><span class="n">native_info_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>After initialization, use the <code class="docutils literal notranslate"><span class="pre">AICG2Model</span></code> class to create an AICG model, then create an OpenMM system based on the model. The specific parameters include the initialized <code class="docutils literal notranslate"><span class="pre">top</span></code>, <code class="docutils literal notranslate"><span class="pre">use_pbc=True</span></code> to control whether nonbonded interactions are used, and <code class="docutils literal notranslate"><span class="pre">nonbondedMethod</span></code> to set the properties of nonbonded interactions, including whether they are truncated and whether periodic boundary conditions are used. After creating the system, we use the <code class="docutils literal notranslate"><span class="pre">append_ff_params</span></code> function to input the parsed force field parameters from <code class="docutils literal notranslate"><span class="pre">ParserNinfo</span></code>, and then call <code class="docutils literal notranslate"><span class="pre">add_all_default_ener_function</span></code> to add all the necessary default energy functions. The parameter <code class="docutils literal notranslate"><span class="pre">oriented_Hbond</span></code> set to <code class="docutils literal notranslate"><span class="pre">False</span></code> indicates that orientation-dependent hydrogen bonds are not added.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">AICG2Model</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">create_system</span><span class="p">(</span><span class="n">top</span><span class="p">,</span><span class="n">use_pbc</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">box_a</span><span class="o">=</span><span class="n">box</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">box_b</span><span class="o">=</span><span class="n">box</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">box_c</span><span class="o">=</span><span class="n">box</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span>
+                    <span class="n">nonbondedMethod</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">CutoffPeriodic</span><span class="p">,</span>
+                    <span class="n">remove_cmmotion</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># input native information</span>
+<span class="n">model</span><span class="o">.</span><span class="n">append_ff_params</span><span class="p">(</span><span class="n">ParserNinfo</span><span class="p">)</span>
+<span class="c1"># add all default energy function</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add_all_default_ener_function</span><span class="p">(</span><span class="n">oriented_Hbond</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">cutoffkh</span><span class="o">=</span><span class="n">cutoff_kh</span><span class="p">,</span>
+                                    <span class="n">kh_epsilon_scale</span><span class="o">=</span><span class="n">lambdakh_scale</span><span class="p">,</span><span class="n">temperature</span><span class="o">=</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Add protein bonds.
+Add protein angles.
+Add protien aicg13 angles.
+Add flexible local potential of angle of backbone.
+Add protein native dihedral angle.
+Add protein aicg dihedral.
+Add flexible local potential of dihedral of backbone
+Add protien intra native contact
+get_exclusion
+Add a kim hummer and excluded combined potential energy function
+Add debye huckel potential
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create a Langevin integrator using OpenMM, and then build the simulation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create simulation</span>
+<span class="n">integrator</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">LangevinMiddleIntegrator</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="n">unit</span><span class="o">.</span><span class="n">kelvin</span><span class="p">,</span><span class="n">friction</span><span class="o">/</span><span class="n">unit</span><span class="o">.</span><span class="n">picosecond</span><span class="p">,</span><span class="n">timestep</span><span class="o">*</span><span class="n">unit</span><span class="o">.</span><span class="n">femtosecond</span><span class="p">)</span>
+<span class="n">init_coord</span> <span class="o">=</span> <span class="n">pdb</span><span class="o">.</span><span class="n">xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:]</span> <span class="o">*</span> <span class="n">unit</span><span class="o">.</span><span class="n">nanometer</span>
+<span class="n">model</span><span class="o">.</span><span class="n">set_simulation</span><span class="p">(</span><span class="n">integrator</span><span class="p">,</span> <span class="n">platform_name</span><span class="o">=</span><span class="n">platform_type</span><span class="p">,</span><span class="n">properties</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Precision&#39;</span><span class="p">:</span> <span class="s1">&#39;mixed&#39;</span><span class="p">},</span><span class="n">init_coord</span><span class="o">=</span><span class="n">init_coord</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">move_COM_to_box_center</span><span class="p">(</span><span class="n">use_pbc</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">setVelocitiesToTemperature</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="n">unit</span><span class="o">.</span><span class="n">kelvin</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">minimizeEnergy</span><span class="p">()</span>
+<span class="c1"># reporter trajectory and log about simulation</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add_reporters</span><span class="p">(</span><span class="n">tot_simu_steps</span><span class="p">,</span> <span class="n">report_period</span><span class="p">,</span> 
+                    <span class="n">output_traj_name</span><span class="o">=</span><span class="s1">&#39;../output/</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">output_file</span><span class="p">),</span><span class="n">report_traj_format</span><span class="o">=</span><span class="s1">&#39;dcd&#39;</span>
+                    <span class="p">,</span><span class="n">report_traj</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">report_state_log</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Use platform: CUDA
+Use precision: mixed
+Move center of mass (COM) to box center.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Run the simulation. If the simulation is interrupted, the model will automatically save the current system’s force field in <code class="docutils literal notranslate"><span class="pre">system_xxx.xml</span></code> and the state information at the simulation time (including positions, velocities, etc.) in <code class="docutils literal notranslate"><span class="pre">state_xxx.xml</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Running simulation!!!&#39;</span><span class="p">)</span> 
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">tot_simu_steps</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;simulation interruption&#39;</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">save_system</span><span class="p">(</span><span class="s1">&#39;../output/system_</span><span class="si">%s</span><span class="s1">.xml&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">output_file</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">save_state</span><span class="p">(</span><span class="s1">&#39;../output/state_</span><span class="si">%s</span><span class="s1">.xml&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">output_file</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running simulation!!!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="compute-the-radius-of-gyration-r-g">
+<h2>Compute the radius of gyration <span class="math notranslate nohighlight">\(R_{g}\)</span><a class="headerlink" href="#compute-the-radius-of-gyration-r-g" title="Link to this heading">#</a></h2>
+<p>The standard polymer physics formula for calculating the radius of gyration is as follows:</p>
+<p><span class="math notranslate nohighlight">\(
+R_g = \sqrt{\frac{1}{N}&lt;\sum_{i=1}^{N}(r_i - r_{CM})&gt;}
+\)</span></p>
+<p>In the equation, <span class="math notranslate nohighlight">\(N\)</span> refers to the number of particles, <span class="math notranslate nohighlight">\(r_{i}\)</span> is the coordinate of particle <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(r_{CM}\)</span> is the center of mass coordinate, and <code class="docutils literal notranslate"><span class="pre">&lt;...&gt;</span></code> denotes ensemble average.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">_A_to_nm</span> <span class="o">=</span> <span class="mf">0.1</span> 
+<span class="n">lambdascale</span> <span class="o">=</span> <span class="mf">1.13</span>
+<span class="n">traj</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../output/monomer.dcd&#39;</span><span class="p">,</span><span class="n">top</span><span class="o">=</span><span class="s1">&#39;../output/monomer.pdb&#39;</span><span class="p">)</span>
+<span class="n">rg</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">compute_rg</span><span class="p">(</span><span class="n">traj</span><span class="p">,</span><span class="n">masses</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">Rg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">rg</span><span class="p">)</span><span class="o">/</span><span class="n">_A_to_nm</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;radius of gyration:&#39;</span><span class="p">,</span><span class="n">Rg</span><span class="p">,</span><span class="s1">&#39;angstrom&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>radius of gyration: 15.914187405397975 angstrom
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="main_sh3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Example 1. protein sh3 based on one bead model</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-simulation">Set simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-radius-of-gyration-r-g">Compute the radius of gyration <span class="math notranslate nohighlight">\(R_{g}\)</span></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Lujun Zou
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024 Lujun Zou, Wenfei Li.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

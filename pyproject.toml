@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["openaicg2"]
+namespaces = false
+
+[project]
+name = "openaicg2"
+version = "0.0.1"
+authors = [ 
+          { name="ZouLuJun", email="zoulujun@ucas.ac.cn"},
+]
+description = "A coarse-grained molecular model of protein"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy",
+    "pandas",
+    "mdtraj",
+    "OpenMM",
+]
+
+[project.urls]
+Homepage = "https://gowindyer.github.io/openaicgdoc"
+
+[tool.setuptools]
+include-package-data = true

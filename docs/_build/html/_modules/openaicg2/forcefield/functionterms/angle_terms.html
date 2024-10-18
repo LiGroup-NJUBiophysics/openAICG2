@@ -1,0 +1,533 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openaicg2.forcefield.functionterms.angle_terms &#8212; OpenAICG2</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=e1a75a79"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/openaicg2/forcefield/functionterms/angle_terms';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="OpenAICG2 - Home"/>
+    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="OpenAICG2 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    Welcome to OpenAICG2+’s documentation
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../api_model.html">Model API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api_functionterm.html">Force functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api_utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api_enhance_sampling.html">Enhanced sampling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Example</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../main_sh3.html">Example 1. protein sh3 based on one bead model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../main_amyloid42_gyration.html">Example 2. Simulating the Amyloid <span class="math notranslate nohighlight">\(\beta 42\)</span> monomer.</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/Gowindyer/openaicgdoc" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for openaicg2.forcefield.functionterms.angle_terms</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">openmm</span> <span class="k">as</span> <span class="nn">mm</span>
+<span class="kn">from</span> <span class="nn">openmm</span> <span class="kn">import</span> <span class="n">unit</span>
+
+<span class="n">CUTOFF_UNDER_EXP</span> <span class="o">=</span> <span class="o">-</span><span class="mi">50</span>
+<div class="viewcode-block" id="harmonic_angle_term">
+<a class="viewcode-back" href="../../../../api_functionterm.html#openaicg2.forcefield.functionterms.harmonic_angle_term">[docs]</a>
+<span class="k">def</span> <span class="nf">harmonic_angle_term</span><span class="p">(</span><span class="n">angle_info</span><span class="p">,</span><span class="n">use_pbc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">force_group</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Harmonic angle force term</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    angle_info : pd.DataFrame</span>
+<span class="sd">        Information about all Hamonic angles</span>
+
+<span class="sd">    use_pbc : bool, optional</span>
+<span class="sd">        Whether use periodic boundary conditions.  If False (default),then pbc would not apply to Harmonic angle force. </span>
+<span class="sd">    </span>
+<span class="sd">    force_group : int</span>
+<span class="sd">        Force group</span>
+<span class="sd">    </span>
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    angle_force : Force</span>
+<span class="sd">        OpenMM harmonic angle force object </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">angle_force</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">HarmonicAngleForce</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">angle_info</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+        <span class="n">angle_force</span><span class="o">.</span><span class="n">addAngle</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">a1</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">a2</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">a3</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">natang</span><span class="p">,</span><span class="n">row</span><span class="o">.</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">angle_force</span><span class="o">.</span><span class="n">setUsesPeriodicBoundaryConditions</span><span class="p">(</span><span class="n">use_pbc</span><span class="p">)</span>
+    <span class="n">angle_force</span><span class="o">.</span><span class="n">setForceGroup</span><span class="p">(</span><span class="n">force_group</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">angle_force</span></div>
+
+
+<div class="viewcode-block" id="aicg13_angle_term">
+<a class="viewcode-back" href="../../../../api_functionterm.html#openaicg2.forcefield.functionterms.aicg13_angle_term">[docs]</a>
+<span class="k">def</span> <span class="nf">aicg13_angle_term</span><span class="p">(</span><span class="n">aicg13_ang_info</span><span class="p">,</span><span class="n">use_pbc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">force_group</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    aicg13 interaction is structure-based local contact potential to describe specific local interactions of the given protein structure. </span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    aicg13_info : pb.DataFrame</span>
+<span class="sd">        Information for all aicg13 angle interaction.</span>
+<span class="sd">    </span>
+<span class="sd">    use_pbc : bool, optional </span>
+<span class="sd">        Whether use periodic boundary conditions.  If False (default),then pbc would not apply to aicg13 interaction.</span>
+<span class="sd">    </span>
+<span class="sd">    force_group : int</span>
+<span class="sd">        Force group</span>
+<span class="sd">    </span>
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    aicg13_ang_force : Force</span>
+<span class="sd">        Openmm force object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#CUTOFF_UNDER_EXP = -50</span>
+    <span class="c1">#*step(gex-{CUTOFF_UNDER_EXP})</span>
+    <span class="n">aicg13_ang_force</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">CustomCompoundBondForce</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="sa">f</span><span class="s2">&quot;-epsilon13 * exp(gex);gex=-(r13-r13_0)^2/(2*width13^2);r13=distance(p3,p1)&quot;</span><span class="p">)</span>
+    <span class="n">aicg13_ang_force</span><span class="o">.</span><span class="n">addPerBondParameter</span><span class="p">(</span><span class="s2">&quot;epsilon13&quot;</span><span class="p">)</span>
+    <span class="n">aicg13_ang_force</span><span class="o">.</span><span class="n">addPerBondParameter</span><span class="p">(</span><span class="s2">&quot;r13_0&quot;</span><span class="p">)</span>
+    <span class="n">aicg13_ang_force</span><span class="o">.</span><span class="n">addPerBondParameter</span><span class="p">(</span><span class="s2">&quot;width13&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">aicg13_ang_info</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+        <span class="n">aicg13_ang_force</span><span class="o">.</span><span class="n">addBond</span><span class="p">([</span><span class="n">row</span><span class="o">.</span><span class="n">a1</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">a2</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">a3</span><span class="p">],</span> <span class="p">[</span><span class="n">row</span><span class="o">.</span><span class="n">epsilon</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">r0</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">width</span><span class="p">])</span>
+    <span class="n">aicg13_ang_force</span><span class="o">.</span><span class="n">setUsesPeriodicBoundaryConditions</span><span class="p">(</span><span class="n">use_pbc</span><span class="p">)</span>
+    <span class="n">aicg13_ang_force</span><span class="o">.</span><span class="n">setForceGroup</span><span class="p">(</span><span class="n">force_group</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">aicg13_ang_force</span> </div>
+
+
+<div class="viewcode-block" id="flex_angle_term">
+<a class="viewcode-back" href="../../../../api_functionterm.html#openaicg2.forcefield.functionterms.flex_angle_term">[docs]</a>
+<span class="k">def</span> <span class="nf">flex_angle_term</span><span class="p">(</span><span class="n">flex_ang_info</span><span class="p">,</span><span class="n">use_pbc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">force_group</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">     The flexible local potential was constructed by analyzing loop structures in protein structure database to enchance angle flexibility.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    flex_ang_info : pb.DataFrame</span>
+<span class="sd">        Information of flexible local potential for the virtual bond angles.</span>
+<span class="sd">    </span>
+<span class="sd">    use_pbc : bool, optional </span>
+<span class="sd">        Whether use periodic boundary conditions.  If False (default),then pbc would not apply to force.</span>
+<span class="sd">    </span>
+<span class="sd">    force_group : int</span>
+<span class="sd">        Force group.</span>
+<span class="sd">    </span>
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    flex_ang_force : Force</span>
+<span class="sd">        Openmm force object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">FBA_MIN_ANG_FORCE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">30.0</span>
+    <span class="n">FBA_MAX_ANG_FORCE</span> <span class="o">=</span> <span class="mf">30.0</span>
+    <span class="n">num_interval</span> <span class="o">=</span> <span class="mi">9</span><span class="c1">#len(flex_angle_x) - 1</span>
+    <span class="n">theta_samp_x_name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;theta_</span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_interval</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="n">theta_y2_name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;y2_</span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_interval</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="n">theta_y_name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;y_</span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_interval</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="c1">#    a = (theta_hi - theta) / lk</span>
+    <span class="c1">#    b = (theta - theta_lo) / lk</span>
+    <span class="c1">#    return (a**3 - a)*lk**2*y2_lo/6 + (b**3-b)*lk**2*y2_hi/6 + b * y_hi + a * y_lo</span>
+    <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_interval</span><span class="p">):</span>
+        <span class="n">equa_fisrt_part</span> <span class="o">=</span> <span class="s2">&quot;(((</span><span class="si">%s</span><span class="s2"> - theta)^3/(</span><span class="si">%s</span><span class="s2">-</span><span class="si">%s</span><span class="s2">) - (</span><span class="si">%s</span><span class="s2"> - theta)*(</span><span class="si">%s</span><span class="s2">-</span><span class="si">%s</span><span class="s2">))*</span><span class="si">%s</span><span class="s2">/6 + &quot;</span> \
+                          <span class="o">%</span><span class="p">(</span><span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+                            <span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span><span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+                            <span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span><span class="n">theta_y2_name</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+        <span class="n">equa_sec_part</span> <span class="o">=</span> <span class="s2">&quot;((theta - </span><span class="si">%s</span><span class="s2">)^3/(</span><span class="si">%s</span><span class="s2">-</span><span class="si">%s</span><span class="s2">) - (theta- </span><span class="si">%s</span><span class="s2">)*(</span><span class="si">%s</span><span class="s2">-</span><span class="si">%s</span><span class="s2">))*</span><span class="si">%s</span><span class="s2">/6 + &quot;</span>\
+                        <span class="o">%</span><span class="p">(</span><span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span><span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+                          <span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span><span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span>
+                          <span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span><span class="n">theta_y2_name</span><span class="p">[</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">equa_thr_part</span> <span class="o">=</span> <span class="s2">&quot;(theta - </span><span class="si">%s</span><span class="s2">)*</span><span class="si">%s</span><span class="s2">/(</span><span class="si">%s</span><span class="s2">-</span><span class="si">%s</span><span class="s2">) + (</span><span class="si">%s</span><span class="s2"> - theta) * </span><span class="si">%s</span><span class="s2">/(</span><span class="si">%s</span><span class="s2">-</span><span class="si">%s</span><span class="s2">))&quot;</span>\
+                        <span class="o">%</span><span class="p">(</span><span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span><span class="n">theta_y_name</span><span class="p">[</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+                          <span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span>
+                          <span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">theta_y_name</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span>
+                          <span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+        <span class="n">equa_interv_part</span> <span class="o">=</span> <span class="s2">&quot;*step(theta-</span><span class="si">%s</span><span class="s2">)*step(</span><span class="si">%s</span><span class="s2">-theta)&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span><span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">ind</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+           <span class="n">ener_expression</span> <span class="o">=</span> <span class="n">equa_fisrt_part</span> <span class="o">+</span> <span class="n">equa_sec_part</span> <span class="o">+</span> <span class="n">equa_thr_part</span> <span class="o">+</span> <span class="n">equa_interv_part</span>
+        <span class="k">else</span><span class="p">:</span>
+           <span class="n">rid_boundary_val</span> <span class="o">=</span> <span class="s2">&quot;-delta(theta-</span><span class="si">%s</span><span class="s2">)*</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span><span class="n">theta_y_name</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+           <span class="n">interval_expre_i</span> <span class="o">=</span> <span class="s1">&#39;+&#39;</span> <span class="o">+</span> <span class="n">equa_fisrt_part</span> <span class="o">+</span> <span class="n">equa_sec_part</span> <span class="o">+</span> <span class="n">equa_thr_part</span> <span class="o">+</span>  <span class="n">equa_interv_part</span> <span class="o">+</span> <span class="n">rid_boundary_val</span>
+           <span class="n">ener_expression</span> <span class="o">+=</span> <span class="n">interval_expre_i</span>   
+
+    <span class="n">FBA_MIN_ANG_FORCE_UNIT</span> <span class="o">=</span> <span class="n">FBA_MIN_ANG_FORCE</span> <span class="o">*</span> <span class="mf">4.1840</span><span class="c1">#* unit.kilocalorie_per_mole/unit.radian</span>
+    <span class="n">FBA_MAX_ANG_FORCE_UNIT</span> <span class="o">=</span> <span class="n">FBA_MAX_ANG_FORCE</span> <span class="o">*</span> <span class="mf">4.1840</span><span class="c1">#* unit.kilocalorie_per_mole/unit.radian</span>
+    <span class="n">ener_expression</span> <span class="o">=</span> <span class="s1">&#39;step(theta - fba_min_th)*step(fba_max_th-theta)*(&#39;</span><span class="o">+</span><span class="n">ener_expression</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span> <span class="o">+</span>\
+                      <span class="sa">f</span><span class="s1">&#39;+step(fba_min_th-theta) * (</span><span class="si">{</span><span class="n">FBA_MIN_ANG_FORCE_UNIT</span><span class="si">}</span><span class="s1">*theta + fba_min_th_ener-</span><span class="si">{</span><span class="n">FBA_MIN_ANG_FORCE_UNIT</span><span class="si">}</span><span class="s1">* fba_min_th)&#39;</span> <span class="o">+</span>\
+                      <span class="sa">f</span><span class="s1">&#39;+ step(theta-fba_max_th) * (</span><span class="si">{</span><span class="n">FBA_MAX_ANG_FORCE_UNIT</span><span class="si">}</span><span class="s1">*theta + fba_max_th_ener - </span><span class="si">{</span><span class="n">FBA_MAX_ANG_FORCE_UNIT</span><span class="si">}</span><span class="s1"> * fba_max_th)&#39;</span> <span class="o">+</span> \
+                       <span class="s1">&#39;- delta(theta-fba_min_th) * fba_min_th_ener - delta(fba_max_th - theta) * fba_max_th_ener - corr_tot_fba_ener&#39;</span>
+    <span class="c1"># create a Custom angle force for flexible angle potential   </span>
+    <span class="n">bound_ener_corr_para_name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;fba_min_th&#39;</span><span class="p">,</span><span class="s1">&#39;fba_min_th_ener&#39;</span><span class="p">,</span><span class="s1">&#39;fba_max_th&#39;</span><span class="p">,</span><span class="s1">&#39;fba_max_th_ener&#39;</span><span class="p">,</span><span class="s1">&#39;corr_tot_fba_ener&#39;</span><span class="p">]</span>
+    <span class="n">flex_angle_force</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">CustomAngleForce</span><span class="p">(</span><span class="n">ener_expression</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">theta_samp_x_name</span><span class="p">)):</span>
+        <span class="n">flex_angle_force</span><span class="o">.</span><span class="n">addPerAngleParameter</span><span class="p">(</span><span class="n">theta_samp_x_name</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">theta_y_name</span><span class="p">)):</span>
+        <span class="n">flex_angle_force</span><span class="o">.</span><span class="n">addPerAngleParameter</span><span class="p">(</span><span class="n">theta_y_name</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">theta_y2_name</span><span class="p">)):</span>
+        <span class="n">flex_angle_force</span><span class="o">.</span><span class="n">addPerAngleParameter</span><span class="p">(</span><span class="n">theta_y2_name</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">bound_ener_corr_para_name</span><span class="p">:</span>
+        <span class="n">flex_angle_force</span><span class="o">.</span><span class="n">addPerAngleParameter</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">flex_ang_info</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">a1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;a1&#39;</span><span class="p">])</span>
+        <span class="n">a2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;a2&#39;</span><span class="p">])</span>
+        <span class="n">a3</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;a3&#39;</span><span class="p">])</span>
+        <span class="n">para</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
+        <span class="n">flex_angle_force</span><span class="o">.</span><span class="n">addAngle</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a3</span><span class="p">,</span><span class="n">para</span><span class="p">)</span>
+    <span class="n">flex_angle_force</span><span class="o">.</span><span class="n">setUsesPeriodicBoundaryConditions</span><span class="p">(</span><span class="n">use_pbc</span><span class="p">)</span>
+    <span class="n">flex_angle_force</span><span class="o">.</span><span class="n">setForceGroup</span><span class="p">(</span><span class="n">force_group</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">flex_angle_force</span></div>
+
+           
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Lujun Zou
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024 Lujun Zou, Wenfei Li.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

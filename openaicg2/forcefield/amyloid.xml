@@ -1,0 +1,36 @@
+<ForceField>
+
+  <AtomTypes>
+    <Type name='0' class='CA' element='C' mass='137'/>
+    <Type name='1' class='CB' element='C' mass='137'/>
+  </AtomTypes>
+
+  <Residues>
+    <Residue name="GLY">
+      <Atom name="CA" type="0"/>
+      <ExternalBond atomName="CA"/>
+      <ExternalBond atomName="CA"/>
+    </Residue>
+
+    <Residue name="GLY-ter">
+      <Atom name="CA" type="0"/>
+      <ExternalBond atomName="CA"/>
+    </Residue>
+
+    <Residue name="CGA">
+      <Atom name="CA" type="0"/>
+      <Atom name="CB" type="1"/>
+      <Bond atomName1="CA" atomName2="CB"/>
+      <ExternalBond atomName="CA"/>
+      <ExternalBond atomName="CA"/>
+    </Residue>   
+
+    <Residue name="CGA-ter">
+      <Atom name="CA" type="0"/>
+      <Atom name="CB" type="1"/>
+      <Bond atomName1="CA" atomName2="CB"/>
+      <ExternalBond atomName="CA"/>
+    </Residue>
+  </Residues>
+
+</ForceField>

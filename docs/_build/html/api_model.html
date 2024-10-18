@@ -1,0 +1,883 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Model API &#8212; OpenAICG2</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=e1a75a79"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api_model';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Force functions" href="api_functionterm.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="OpenAICG2 - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="OpenAICG2 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to OpenAICG2+’s documentation
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Model API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_functionterm.html">Force functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_enhance_sampling.html">Enhanced sampling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Example</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="main_sh3.html">Example 1. protein sh3 based on one bead model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main_amyloid42_gyration.html">Example 2. Simulating the Amyloid <span class="math notranslate nohighlight">\(\beta 42\)</span> monomer.</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href=" https://github.com/LiGroup-NJUBiophysics/openAICG2" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/api_model.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Model API</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-openaicg2.forcefield.simulationsystem">openaicg2.forcefield.simulationsystem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem"><code class="docutils literal notranslate"><span class="pre">SimulationSystem</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.add_reporters"><code class="docutils literal notranslate"><span class="pre">SimulationSystem.add_reporters()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.append_ff_params"><code class="docutils literal notranslate"><span class="pre">SimulationSystem.append_ff_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.auto_get_charged_atom"><code class="docutils literal notranslate"><span class="pre">SimulationSystem.auto_get_charged_atom()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.create_system"><code class="docutils literal notranslate"><span class="pre">SimulationSystem.create_system()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.get_exclusion"><code class="docutils literal notranslate"><span class="pre">SimulationSystem.get_exclusion()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.move_COM_to_box_center"><code class="docutils literal notranslate"><span class="pre">SimulationSystem.move_COM_to_box_center()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.save_state"><code class="docutils literal notranslate"><span class="pre">SimulationSystem.save_state()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.save_system"><code class="docutils literal notranslate"><span class="pre">SimulationSystem.save_system()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.set_simulation"><code class="docutils literal notranslate"><span class="pre">SimulationSystem.set_simulation()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-openaicg2.forcefield.aicgmodel">openaicg2.forcefield.aicgmodel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model"><code class="docutils literal notranslate"><span class="pre">AICG2Model</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_all_default_ener_function"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_all_default_ener_function()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_debye_huckel"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_debye_huckel()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_excluded"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_excluded()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_flexible_loc_angle"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_flexible_loc_angle()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_flexible_loc_dihedral"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_flexible_loc_dihedral()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_kim_hummer"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_kim_hummer()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_aicg13_angle"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_protein_aicg13_angle()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_aicg_dihedral"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_protein_aicg_dihedral()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_bond"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_protein_bond()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_harmonic_angle"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_protein_harmonic_angle()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_native_dihedral"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_protein_native_dihedral()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_native_pair"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_protein_native_pair()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="model-api">
+<h1>Model API<a class="headerlink" href="#model-api" title="Link to this heading">#</a></h1>
+<section id="module-openaicg2.forcefield.simulationsystem">
+<span id="openaicg2-forcefield-simulationsystem"></span><h2>openaicg2.forcefield.simulationsystem<a class="headerlink" href="#module-openaicg2.forcefield.simulationsystem" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="openaicg2.forcefield.simulationsystem.SimulationSystem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openaicg2.forcefield.simulationsystem.</span></span><span class="sig-name descname"><span class="pre">SimulationSystem</span></span><a class="reference internal" href="_modules/openaicg2/forcefield/simulationsystem.html#SimulationSystem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.simulationsystem.SimulationSystem" title="Link to this definition">#</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.simulationsystem.SimulationSystem.add_reporters">
+<span class="sig-name descname"><span class="pre">add_reporters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tot_simu_steps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_traj_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'output'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_traj_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dcd'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_traj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_state_log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/simulationsystem.html#SimulationSystem.add_reporters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.add_reporters" title="Link to this definition">#</a></dt>
+<dd><p>Add reporters that produce trajectory in dcd or xtc format and state log for OpenMM simulation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tot_sim_steps</strong> (<em>int</em>) – Total time steps of simulation.</p></li>
+<li><p><strong>report_period</strong> (<em>int</em>) – Report period for trajectory and state log files.</p></li>
+<li><p><strong>output_traj_name</strong> (<em>str</em>) – Output path and name for trajectory and state log files.</p></li>
+<li><p><strong>report_traj_format</strong> (<em>str</em>) – Trajectory file format, which one can choose dcd ro xtc format.</p></li>
+<li><p><strong>report_traj</strong> (<em>bool</em>) – Whether to output trajectory file.</p></li>
+<li><p><strong>report_state_log</strong> (<em>bool</em>) – Whether to output sate log file.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.simulationsystem.SimulationSystem.append_ff_params">
+<span class="sig-name descname"><span class="pre">append_ff_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ff_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/simulationsystem.html#SimulationSystem.append_ff_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.append_ff_params" title="Link to this definition">#</a></dt>
+<dd><p>The method can append new molecules by concatenating atoms and bonded interaction information saved in dataframes.
+Reference from <a class="github reference external" href="https://github.com/ZhangGroup-MITChemistry/OpenABC/blob/main/openabc/forcefields/cg_model.py">ZhangGroup-MITChemistry/OpenABC</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ff_params</strong> (<em>force field parameters</em>) – The object of a force field paramters including interaction information.</p></li>
+<li><p><strong>Verbose</strong> (<em>bool</em>) – Whether to report the appended attributes.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.simulationsystem.SimulationSystem.auto_get_charged_atom">
+<span class="sig-name descname"><span class="pre">auto_get_charged_atom</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/simulationsystem.html#SimulationSystem.auto_get_charged_atom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.auto_get_charged_atom" title="Link to this definition">#</a></dt>
+<dd><p>automatically get the index and charge of charged atom.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.simulationsystem.SimulationSystem.create_system">
+<span class="sig-name descname"><span class="pre">create_system</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">top</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forcefield_template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_pbc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nonbondedMethod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">CutoffNonPeriodic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_cmmotion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/simulationsystem.html#SimulationSystem.create_system"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.create_system" title="Link to this definition">#</a></dt>
+<dd><p>Create OpenMM system for simulation.
+Need to further add forces to this OpenMM system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>top</strong> (<em>OpenMM Topology</em>) – The OpenMM topology.</p></li>
+<li><p><strong>forcefield_template</strong> (<em>string</em>) – The path of OpenMM force fild xml file that define
+the atom types and residue templates of system.</p></li>
+<li><p><strong>use_pbc</strong> (<em>bool</em>) – Wheter to use periodic boundary condition (PBC).</p></li>
+<li><p><strong>box_a</strong> (<em>float</em>) – The length of the box along the x-axis is measured in angstroms.</p></li>
+<li><p><strong>box_b</strong> (<em>float</em>) – The length of the box along the y-axis is measured in angstroms.</p></li>
+<li><p><strong>box_c</strong> (<em>float</em>) – The length of the box along the z-axis is measured in angstroms.</p></li>
+<li><p><strong>nonbondedMethod</strong> (<em>Openmm method</em>) – Set the method used for handling long range nonbonded interactions.
+Allowed values are NoCutoff, CutoffNonPeriodic, CutoffPeriodic, Ewald, or PME.</p></li>
+<li><p><strong>remove_commotion</strong> (<em>bool</em>) – Whether to remove center fo mass motions</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.simulationsystem.SimulationSystem.get_exclusion">
+<span class="sig-name descname"><span class="pre">get_exclusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">res_idx_dis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_nat_con</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/simulationsystem.html#SimulationSystem.get_exclusion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.get_exclusion" title="Link to this definition">#</a></dt>
+<dd><p>To get the exclusion that exclude nonbonded interactions when the distance of residue index is less than or equal to threshold value(res_idx_dis).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>res_idx_dis</strong> (<em>int</em>) – The threshold distance of residue index and default value is 2。</p></li>
+<li><p><strong>exclude_nat_con</strong> (<em>bool</em><em>, </em><em>optional</em>) – If set to True (default), those atom pairs involved in native contacts, such as those formed by Go or hydrogen bonds,
+will be excluded from other LJ-type nonbonded potential calculations.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.simulationsystem.SimulationSystem.move_COM_to_box_center">
+<span class="sig-name descname"><span class="pre">move_COM_to_box_center</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_pbc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/simulationsystem.html#SimulationSystem.move_COM_to_box_center"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.move_COM_to_box_center" title="Link to this definition">#</a></dt>
+<dd><p>Move center of mass (COM) to box center.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.simulationsystem.SimulationSystem.save_state">
+<span class="sig-name descname"><span class="pre">save_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state_xml</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'state.xml'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/simulationsystem.html#SimulationSystem.save_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.save_state" title="Link to this definition">#</a></dt>
+<dd><p>Save state in a reabable XML format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state_xml</strong> (<em>str</em>) – Output path for state xml file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.simulationsystem.SimulationSystem.save_system">
+<span class="sig-name descname"><span class="pre">save_system</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">system_xml</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'system.xml'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/simulationsystem.html#SimulationSystem.save_system"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.save_system" title="Link to this definition">#</a></dt>
+<dd><p>Save sytem in a readabel XML format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>system_xml</strong> (<em>str</em>) – Output path for system xml file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.simulationsystem.SimulationSystem.set_simulation">
+<span class="sig-name descname"><span class="pre">set_simulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">integrator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">platform_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CPU'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'Precision':</span> <span class="pre">'mixed'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_coord</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/simulationsystem.html#SimulationSystem.set_simulation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.set_simulation" title="Link to this definition">#</a></dt>
+<dd><p>Set OpenMM simulation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>integrator</strong> (<em>Openmm Integrator</em>) – OpenMM integrator.</p></li>
+<li><p><strong>platform_name</strong> (<em>str</em>) – OpenMM simulation platform name. The available platforms are Reference or CPU or CUDA or OpenCL.</p></li>
+<li><p><strong>properties</strong> (<em>dict</em>) – OpenMM simulation platform properties.</p></li>
+<li><p><strong>init_coord</strong> (<em>None</em><em> or </em><em>array-like</em>) – Initial coordinate of system.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-openaicg2.forcefield.aicgmodel">
+<span id="openaicg2-forcefield-aicgmodel"></span><h2>openaicg2.forcefield.aicgmodel<a class="headerlink" href="#module-openaicg2.forcefield.aicgmodel" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="openaicg2.forcefield.aicgmodel.AICG2Model">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">openaicg2.forcefield.aicgmodel.</span></span><span class="sig-name descname"><span class="pre">AICG2Model</span></span><a class="reference internal" href="_modules/openaicg2/forcefield/aicgmodel.html#AICG2Model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.aicgmodel.AICG2Model" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#openaicg2.forcefield.simulationsystem.SimulationSystem" title="openaicg2.forcefield.simulationsystem.SimulationSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimulationSystem</span></code></a></p>
+<p>A class for AICG2+ model</p>
+<p><strong>Attributes:</strong></p>
+<dl class="simple">
+<dt>bonded_attr_name:  list</dt><dd><p>The categories of interactions within chains. Such as [‘protein_bonds’,’protein_harmonic_angles’,’protein_aicg13_angles’,
+‘protein_native_dihd’,’protein_aicg_dihd’,’protein_intra_contact’]</p>
+</dd>
+<dt>nonbonded_attr_name: list</dt><dd><p>The categories of interactions between chains.
+[‘protein_inter_contact’]</p>
+</dd>
+<dt>flp_bond_ang_params: pd.DataFrame</dt><dd><p>The parameters of flexible local potential regarding bond angle.</p>
+</dd>
+<dt>flp_bond_dihd_params: pd.DataFrame</dt><dd><p>The parameters of flexible local potential regarding dihedral.</p>
+</dd>
+<dt>protein_bonds: pd.DataFrame</dt><dd><p>The parameters of harmonica bond interaction</p>
+</dd>
+<dt>protein_harmonic_angles: pd.DataFrame</dt><dd><p>The parameters of harmonica angle interaction</p>
+</dd>
+<dt>protein_aicg13_angles: pd.DataFrame</dt><dd><p>The parameters of aicg13 angles</p>
+</dd>
+<dt>protein_native_dihd: pd.DataFrame</dt><dd><p>The parameters of native dihedral</p>
+</dd>
+<dt>protein_aicg_dihd: pd.DataFrame</dt><dd><p>The parameters of aicg dihedral</p>
+</dd>
+<dt>protein_intra_contact: pd.DataFrame</dt><dd><p>The parameters of intra-contact</p>
+</dd>
+<dt>protein_inter_contact: pd.DataFrame</dt><dd><p>The parameters of inter-contact</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.aicgmodel.AICG2Model.add_all_default_ener_function">
+<span class="sig-name descname"><span class="pre">add_all_default_ener_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oriented_Hbond</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff_hbond</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff_go</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff_kh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff_exv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kh_epsilon_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/aicgmodel.html#AICG2Model.add_all_default_ener_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_all_default_ener_function" title="Link to this definition">#</a></dt>
+<dd><p>Add all default energy function to create a aicg force field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>oriented_Hbond</strong> (<em>bool</em>) – Whether to add orientation-dependent hydrogen bond between CA atoms for force field.
+If False, the hydrogen would not apply to f  rce field.</p></li>
+<li><p><strong>cutoff_hbond</strong> (<em>float</em>) – cutoff_hbond = truncated distance / rest length</p></li>
+<li><p><strong>cutoff_go</strong> (<em>float</em>) – cutoff_go =  truncated distance / rest length</p></li>
+<li><p><strong>cutoff_kh</strong> (<em>float</em>) – cutoff_kh =  truncated distance / rest length</p></li>
+<li><p><strong>cutoff_exv</strong> (<em>float</em>) – cutoff_exv=  truncated distance / rest length</p></li>
+<li><p><strong>kh_epsilon_scale</strong> (<em>float</em>) – The parameter scale the size of kim-hummer epsilon.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.aicgmodel.AICG2Model.add_debye_huckel">
+<span class="sig-name descname"><span class="pre">add_debye_huckel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dieletric_constant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">80</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.02</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_charged_atom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">13</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/aicgmodel.html#AICG2Model.add_debye_huckel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_debye_huckel" title="Link to this definition">#</a></dt>
+<dd><p>Add electrical potential.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ion_strength</strong> (<em>float</em>) – Salt concentration.</p></li>
+<li><p><strong>temperature</strong> (<em>float</em>) – Temperature.</p></li>
+<li><p><strong>extra_charged_atom</strong> (<em>list</em>) – This represents the additional atoms requiring charge to be added. It consists of N*2 lists, where the first column represents the atom index,
+and the second column represents the atom’s charge.</p></li>
+<li><p><strong>cutoff</strong> (<em>float</em>) – cutoff = truncated distance / rest length</p></li>
+<li><p><strong>force_group</strong> (<em>int</em>) – Force group.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.aicgmodel.AICG2Model.add_excluded">
+<span class="sig-name descname"><span class="pre">add_excluded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rad_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">11</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/aicgmodel.html#AICG2Model.add_excluded"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_excluded" title="Link to this definition">#</a></dt>
+<dd><p>Add excluded interaction between atoms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cutoff</strong> (<em>float</em>) – cutoff = truncated distance / rest length</p></li>
+<li><p><strong>rad_scale</strong> (<em>float</em>) – scaling factor to radii(sigma) and default value is 0.85</p></li>
+<li><p><strong>force_group</strong> (<em>int</em>) – Force group.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.aicgmodel.AICG2Model.add_flexible_loc_angle">
+<span class="sig-name descname"><span class="pre">add_flexible_loc_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/aicgmodel.html#AICG2Model.add_flexible_loc_angle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_flexible_loc_angle" title="Link to this definition">#</a></dt>
+<dd><p>Add flexible local potential for angle are composed of CA atoms in backbone.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>force_group</strong> (<em>int</em>) – Force group.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.aicgmodel.AICG2Model.add_flexible_loc_dihedral">
+<span class="sig-name descname"><span class="pre">add_flexible_loc_dihedral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/aicgmodel.html#AICG2Model.add_flexible_loc_dihedral"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_flexible_loc_dihedral" title="Link to this definition">#</a></dt>
+<dd><p>Add flexible local potential for dihedral angle are composed CA atoms in backbone.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>force_group</strong> (<em>int</em>) – Force group.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.aicgmodel.AICG2Model.add_kim_hummer">
+<span class="sig-name descname"><span class="pre">add_kim_hummer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/home/windyer/workspace/wiucas/coarsed_grained_model_script/deploy2024919/openAICG2/openaicg2/forcefield/para/kh.para'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kh_model_symbol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'D'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kh_epsilon_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rad_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.85</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/aicgmodel.html#AICG2Model.add_kim_hummer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_kim_hummer" title="Link to this definition">#</a></dt>
+<dd><p>Add kim hummer potential between CB and CB which there is no native contact</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – The path of kim-hummer parameters file.</p></li>
+<li><p><strong>kh_model_symbol</strong> (<em>str</em>) – The parameters represent symbols of the Kim-Hummer parameters model. The model consists of
+six types: A, B, C, D, E, and F. Specific numerical values are referenced from “Journal
+of Molecular Biology, 2008, 375(5): 1416-1433.”</p></li>
+<li><p><strong>T</strong> (<em>float</em>) – Temperature</p></li>
+<li><p><strong>kh_epsilon_scale</strong> (<em>float</em>) – The parameter scale the size of kim-hummer epsilon.</p></li>
+<li><p><strong>cutoff</strong> (<em>float</em>) – cutoff = truncated distance / rest length</p></li>
+<li><p><strong>rad_scale</strong> (<em>float</em>) – scaling factor to radii(sigma) and default value is 0.85</p></li>
+<li><p><strong>force_group</strong> (<em>int</em>) – Force group.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_aicg13_angle">
+<span class="sig-name descname"><span class="pre">add_protein_aicg13_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/aicgmodel.html#AICG2Model.add_protein_aicg13_angle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_aicg13_angle" title="Link to this definition">#</a></dt>
+<dd><p>Add protein aicg13 angles involved CA atom that describe the local structure in backbone chain</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>force_group</strong> (<em>int</em>) – Force group.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_aicg_dihedral">
+<span class="sig-name descname"><span class="pre">add_protein_aicg_dihedral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/aicgmodel.html#AICG2Model.add_protein_aicg_dihedral"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_aicg_dihedral" title="Link to this definition">#</a></dt>
+<dd><p>add protein aicg dihedral angle for backbone chain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>force_group</strong> (<em>int</em>) – Force group.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_bond">
+<span class="sig-name descname"><span class="pre">add_protein_bond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/aicgmodel.html#AICG2Model.add_protein_bond"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_bond" title="Link to this definition">#</a></dt>
+<dd><p>Add protein bonds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>force_group</strong> (<em>int</em>) – Force group.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_harmonic_angle">
+<span class="sig-name descname"><span class="pre">add_protein_harmonic_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k_angle_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/aicgmodel.html#AICG2Model.add_protein_harmonic_angle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_harmonic_angle" title="Link to this definition">#</a></dt>
+<dd><p>Add protein harmonic angles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>force_group</strong> (<em>int</em>) – Force group.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_native_dihedral">
+<span class="sig-name descname"><span class="pre">add_protein_native_dihedral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/aicgmodel.html#AICG2Model.add_protein_native_dihedral"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_native_dihedral" title="Link to this definition">#</a></dt>
+<dd><p>add native protein dihedrals for side bead.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>force_group</strong> (<em>int</em>) – Force group.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_native_pair">
+<span class="sig-name descname"><span class="pre">add_protein_native_pair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/openaicg2/forcefield/aicgmodel.html#AICG2Model.add_protein_native_pair"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_native_pair" title="Link to this definition">#</a></dt>
+<dd><p>Add native contact pair.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>force_group</strong> (<em>int</em>) – Force group.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="installation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Installation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="api_functionterm.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Force functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-openaicg2.forcefield.simulationsystem">openaicg2.forcefield.simulationsystem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem"><code class="docutils literal notranslate"><span class="pre">SimulationSystem</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.add_reporters"><code class="docutils literal notranslate"><span class="pre">SimulationSystem.add_reporters()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.append_ff_params"><code class="docutils literal notranslate"><span class="pre">SimulationSystem.append_ff_params()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.auto_get_charged_atom"><code class="docutils literal notranslate"><span class="pre">SimulationSystem.auto_get_charged_atom()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.create_system"><code class="docutils literal notranslate"><span class="pre">SimulationSystem.create_system()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.get_exclusion"><code class="docutils literal notranslate"><span class="pre">SimulationSystem.get_exclusion()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.move_COM_to_box_center"><code class="docutils literal notranslate"><span class="pre">SimulationSystem.move_COM_to_box_center()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.save_state"><code class="docutils literal notranslate"><span class="pre">SimulationSystem.save_state()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.save_system"><code class="docutils literal notranslate"><span class="pre">SimulationSystem.save_system()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.simulationsystem.SimulationSystem.set_simulation"><code class="docutils literal notranslate"><span class="pre">SimulationSystem.set_simulation()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-openaicg2.forcefield.aicgmodel">openaicg2.forcefield.aicgmodel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model"><code class="docutils literal notranslate"><span class="pre">AICG2Model</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_all_default_ener_function"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_all_default_ener_function()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_debye_huckel"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_debye_huckel()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_excluded"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_excluded()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_flexible_loc_angle"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_flexible_loc_angle()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_flexible_loc_dihedral"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_flexible_loc_dihedral()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_kim_hummer"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_kim_hummer()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_aicg13_angle"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_protein_aicg13_angle()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_aicg_dihedral"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_protein_aicg_dihedral()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_bond"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_protein_bond()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_harmonic_angle"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_protein_harmonic_angle()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_native_dihedral"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_protein_native_dihedral()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#openaicg2.forcefield.aicgmodel.AICG2Model.add_protein_native_pair"><code class="docutils literal notranslate"><span class="pre">AICG2Model.add_protein_native_pair()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Lujun Zou
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024 Lujun Zou, Wenfei Li.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

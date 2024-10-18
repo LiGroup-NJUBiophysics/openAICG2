@@ -1,0 +1,910 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openaicg2.forcefield.functionterms.nonbonded_terms &#8212; OpenAICG2</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=e1a75a79"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/openaicg2/forcefield/functionterms/nonbonded_terms';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo.png" class="logo__image only-light" alt="OpenAICG2 - Home"/>
+    <script>document.write(`<img src="../../../../_static/logo.png" class="logo__image only-dark" alt="OpenAICG2 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    Welcome to OpenAICG2+’s documentation
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../api_model.html">Model API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api_functionterm.html">Force functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api_utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api_enhance_sampling.html">Enhanced sampling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Example</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../main_sh3.html">Example 1. protein sh3 based on one bead model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../main_amyloid42_gyration.html">Example 2. Simulating the Amyloid <span class="math notranslate nohighlight">\(\beta 42\)</span> monomer.</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/Gowindyer/openaicgdoc" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for openaicg2.forcefield.functionterms.nonbonded_terms</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">openmm</span> <span class="k">as</span> <span class="nn">mm</span>
+<span class="kn">from</span> <span class="nn">openmm</span> <span class="kn">import</span> <span class="n">unit</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<div class="viewcode-block" id="oriented_dependent_Hbond_term">
+<a class="viewcode-back" href="../../../../api_functionterm.html#openaicg2.forcefield.functionterms.oriented_dependent_Hbond_term">[docs]</a>
+<span class="k">def</span> <span class="nf">oriented_dependent_Hbond_term</span><span class="p">(</span><span class="n">odHbond_info</span><span class="p">,</span><span class="n">use_pbc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">cutoff</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span><span class="n">force_group</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;a orientation dependent Lenard-Jones type potential for hydrogen bonds</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    odHbond_info: pd.DataFrame</span>
+<span class="sd">        Information for all native hydrogen bonds are expressed as a N*Nine tabel.</span>
+<span class="sd">        N row are represent the amount of Hbond. 9 columns are index of a1(atom1), </span>
+<span class="sd">        a2, a3, a4, a5, a6 and epsilon, sigma, cutoff(truncation distance/sigma), respectively</span>
+
+<span class="sd">    use_pbc: bool, optional</span>
+<span class="sd">        Whether use periodic boundary conditions.  If False (default), then pbc would not apply to force.</span>
+
+<span class="sd">    cutoff: float</span>
+<span class="sd">        cutoff = truncation distance / rest length. If cutoff is None, the potential will not be trancated.</span>
+
+<span class="sd">    force_group: int</span>
+<span class="sd">        Force group.</span>
+<span class="sd">    </span>
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    oriented_dependent_Hbond_force: Force</span>
+<span class="sd">        OpenMM Force object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        step(r-sigma)*LJ*A+(1-delta(sigma-r))*step(sigma-r)*(LJ+(1-A)*epsilon);</span>
+<span class="sd">                                              LJ=epsilon*(5*(sigma/r)^12-6*(sigma/r)^10);</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># energy function of Hbond</span>
+    <span class="n">energy_func</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;step(r-sigma)*LJ*A+(1-delta(sigma-r))*step(sigma-r)*(LJ+(1-A)*epsilon);</span>
+<span class="s2">                                              LJ=epsilon*(5*(sigma/r)^12-6*(sigma/r)^10);</span>
+<span class="s2">                                              r=distance(p7,p8);</span>
+<span class="s2">                                              A=(1/(1+10*sin(theta1)^4)+1/(1+10*sin(theta2)^4))/2;  </span>
+<span class="s2">                                              theta1=pointangle(cx1,cy1,cz1,x2,y2,z2,x5,y5,z5);</span>
+<span class="s2">                                              theta2=pointangle(cx2,cy2,cz2,x5,y5,z5,x2,y2,z2);</span>
+<span class="s2">                                              cx1=px1+x2;cy1=py1+y2;cz1=pz1+z2;</span>
+<span class="s2">                                              cx2=px2+x5;cy2=py2+y5;cz2=pz1+z5;</span>
+<span class="s2">                                              px1=(d1y*d2z-d1z*d2y);py1=(d1z*d2x-d1x*d2z);pz1=(d1x*d2y-d1y*d2x);</span>
+<span class="s2">                                              px2=(d3y*d4z-d3z*d4y);py2=(d3z*d4x-d3x*d4z);pz2=(d3x*d4y-d3y*d4x);</span>
+<span class="s2">                                              d1x=x1-x2;d1y=y1-y2;d1z=z1-z2;d2x=x3-x2;d2y=y3-y2;d2z=z3-z2;</span>
+<span class="s2">                                              d3x=x4-x5;d3y=y4-y5;d3z=z4-z5;d4x=x6-x5;d4y=y6-y5;d4z=z6-z5;&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">cutoff</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">energy_func</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;step(</span><span class="si">{</span><span class="n">cutoff</span><span class="si">}</span><span class="s2">*sigma - r)*&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">energy_func</span>
+
+    <span class="n">oriented_dependent_Hbond_force</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">CustomCompoundBondForce</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="n">energy_func</span><span class="p">)</span>
+    <span class="n">oriented_dependent_Hbond_force</span><span class="o">.</span><span class="n">addPerBondParameter</span><span class="p">(</span><span class="s2">&quot;epsilon&quot;</span><span class="p">)</span>
+    <span class="n">oriented_dependent_Hbond_force</span><span class="o">.</span><span class="n">addPerBondParameter</span><span class="p">(</span><span class="s2">&quot;sigma&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">odHbond_info</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+        <span class="n">oriented_dependent_Hbond_force</span><span class="o">.</span><span class="n">addBond</span><span class="p">([</span><span class="n">row</span><span class="o">.</span><span class="n">a1</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">a2</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">a3</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">a4</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">a5</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">a6</span><span class="p">,</span><span class="n">row</span><span class="o">.</span><span class="n">a7</span><span class="p">,</span><span class="n">row</span><span class="o">.</span><span class="n">a8</span><span class="p">],</span> <span class="p">[</span><span class="n">row</span><span class="o">.</span><span class="n">epsilon</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">sigma</span><span class="p">])</span>
+    <span class="n">oriented_dependent_Hbond_force</span><span class="o">.</span><span class="n">setUsesPeriodicBoundaryConditions</span><span class="p">(</span><span class="n">use_pbc</span><span class="p">)</span>
+    <span class="n">oriented_dependent_Hbond_force</span><span class="o">.</span><span class="n">setForceGroup</span><span class="p">(</span><span class="n">force_group</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">oriented_dependent_Hbond_force</span></div>
+
+
+<div class="viewcode-block" id="go_contact_term">
+<a class="viewcode-back" href="../../../../api_functionterm.html#openaicg2.forcefield.functionterms.go_contact_term">[docs]</a>
+<span class="k">def</span> <span class="nf">go_contact_term</span><span class="p">(</span><span class="n">native_contact_info</span><span class="p">,</span> <span class="n">use_pbc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">force_group</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;a typical  Lenard-Jones(12-10) potential for native contact in go model</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    native_contact_info: pd.DataFrame</span>
+<span class="sd">        Information for all native contact.</span>
+
+<span class="sd">    use_pbc: bool, optional</span>
+<span class="sd">        Whether use periodic boundary conditions.  If False (default),then pbc would not apply to force.</span>
+<span class="sd">    </span>
+<span class="sd">    cutoff: float</span>
+<span class="sd">        cutoff = truncated distance. If cutoff is None, the potential will not be trancated.</span>
+
+<span class="sd">    force_group: int</span>
+<span class="sd">        Force group.</span>
+<span class="sd">    </span>
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    go_contact_force: Force</span>
+<span class="sd">        OpenMM Force object</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+    <span class="k">if</span> <span class="n">cutoff</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">energy_func</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;epsilon*(5*(sigma/r)^12 - 6*(sigma/r)^10)&#39;&#39;&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">energy_func</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;step(</span><span class="si">{</span><span class="n">cutoff</span><span class="si">}</span><span class="s1">*sigma -r)*epsilon*(5*(sigma/r)^12 - 6*(sigma/r)^10)&#39;&#39;&#39;</span>
+    <span class="n">go_con_force</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">CustomBondForce</span><span class="p">(</span><span class="n">energy_func</span><span class="p">)</span> 
+    <span class="n">go_con_force</span><span class="o">.</span><span class="n">addPerBondParameter</span><span class="p">(</span><span class="s1">&#39;epsilon&#39;</span><span class="p">)</span>
+    <span class="n">go_con_force</span><span class="o">.</span><span class="n">addPerBondParameter</span><span class="p">(</span><span class="s1">&#39;sigma&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">native_contact_info</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+        <span class="n">go_con_force</span><span class="o">.</span><span class="n">addBond</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">a1</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">a2</span><span class="p">,[</span><span class="n">row</span><span class="o">.</span><span class="n">epsilon</span><span class="p">,</span><span class="n">row</span><span class="o">.</span><span class="n">sigma</span><span class="p">])</span>
+    <span class="n">go_con_force</span><span class="o">.</span><span class="n">setUsesPeriodicBoundaryConditions</span><span class="p">(</span><span class="n">use_pbc</span><span class="p">)</span>
+    <span class="n">go_con_force</span><span class="o">.</span><span class="n">setForceGroup</span><span class="p">(</span><span class="n">force_group</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">go_con_force</span></div>
+
+
+<div class="viewcode-block" id="kim_hummer_term">
+<a class="viewcode-back" href="../../../../api_functionterm.html#openaicg2.forcefield.functionterms.kim_hummer_term">[docs]</a>
+<span class="k">def</span> <span class="nf">kim_hummer_term</span><span class="p">(</span><span class="n">atom_resi_type</span><span class="p">,</span><span class="n">epsilon_map</span><span class="p">,</span> <span class="n">sigma_map</span><span class="p">,</span><span class="n">exclusions</span><span class="p">,</span><span class="n">extra_exclusions</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">use_pbc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">cutoff</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">force_group</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;a non-specific and long-range interactoin bewteen amino acid driven by their hydrophobic, aromatic, or electrostatic character, </span>
+<span class="sd">    which is a modified LJ type energy function and reference from &quot;J. Mol. Biol. (2008) 375, 1416–1433&quot;. </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    atom_resi_type: list, str </span>
+<span class="sd">        the residue name of all atoms</span>
+
+<span class="sd">    epsilon_map: array</span>
+<span class="sd">        the strength of specific residue pair</span>
+
+<span class="sd">    sigma_map: array</span>
+<span class="sd">        the rest length of specific residue pair</span>
+<span class="sd">    </span>
+<span class="sd">    exclusions: list</span>
+<span class="sd">        pairs of neighbour particles whose interactions should be omitted from force and energy calculations.</span>
+<span class="sd">    </span>
+<span class="sd">    extra_exclusions: list</span>
+<span class="sd">        This represents the extra particle pairs that are neglected in the calculation of the Kim-Hummer potential.</span>
+
+<span class="sd">    use_pbc: bool, optional</span>
+<span class="sd">        Whether use periodic boundary conditions. If False (default),then pbc would not apply to force.</span>
+<span class="sd">    </span>
+<span class="sd">    cutoff: float</span>
+<span class="sd">        cutoff = truncated distance / rest length. If cutoff is None, the potential will not be trancated.</span>
+
+
+<span class="sd">    force_group: int</span>
+<span class="sd">        Force group.</span>
+<span class="sd">    </span>
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    kim_hummer_force: Force</span>
+<span class="sd">        OpenMM Force object</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+    <span class="n">num_type_resi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">sigma_map</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">energy_func_kh</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;step(</span><span class="si">{</span><span class="n">cutoff</span><span class="si">}</span><span class="s1">*sig-r)*(lj*(1-step(eps)) + step(eps)*repel);</span><span class="se">\</span>
+<span class="s1">                          repel= f1 + f2- delta(r-sig*2^(1/6))*abs(eps);</span><span class="se">\</span>
+<span class="s1">                          f1 = step(sig*2^(1/6)-r)*(lj+2*abs(eps));</span><span class="se">\</span>
+<span class="s1">                          f2 = -step(r-sig*2^(1/6))*lj;</span><span class="se">\</span>
+<span class="s1">                          lj = 4*abs(eps)*(lj12+lj6);</span><span class="se">\</span>
+<span class="s1">                          lj12=(sig/r)^12;lj6=-(sig/r)^6;</span><span class="se">\</span>
+<span class="s1">                          eps=epsilon(resi_type1,resi_type2);</span>
+<span class="s1">                          sig=sigma(resi_type1,resi_type2);&#39;&#39;&#39;</span>
+
+    <span class="n">kim_hummer_force</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">CustomNonbondedForce</span><span class="p">(</span><span class="n">energy_func_kh</span><span class="p">)</span>                                  
+    <span class="n">kim_hummer_force</span><span class="o">.</span><span class="n">addTabulatedFunction</span><span class="p">(</span><span class="s1">&#39;epsilon&#39;</span><span class="p">,</span> <span class="n">mm</span><span class="o">.</span><span class="n">Discrete2DFunction</span><span class="p">(</span><span class="n">num_type_resi</span><span class="p">,</span><span class="n">num_type_resi</span><span class="p">,</span><span class="n">epsilon_map</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span>
+    <span class="n">kim_hummer_force</span><span class="o">.</span><span class="n">addTabulatedFunction</span><span class="p">(</span><span class="s1">&#39;sigma&#39;</span><span class="p">,</span><span class="n">mm</span><span class="o">.</span><span class="n">Discrete2DFunction</span><span class="p">(</span><span class="n">num_type_resi</span><span class="p">,</span><span class="n">num_type_resi</span><span class="p">,</span><span class="n">sigma_map</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span>
+    <span class="n">kim_hummer_force</span><span class="o">.</span><span class="n">addPerParticleParameter</span><span class="p">(</span><span class="s1">&#39;resi_type&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ai</span> <span class="ow">in</span> <span class="n">atom_resi_type</span><span class="p">:</span>
+        <span class="n">kim_hummer_force</span><span class="o">.</span><span class="n">addParticle</span><span class="p">([</span><span class="n">ai</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i_exclu</span> <span class="ow">in</span> <span class="n">exclusions</span><span class="p">:</span>
+        <span class="n">kim_hummer_force</span><span class="o">.</span><span class="n">addExclusion</span><span class="p">(</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">extra_exclusions</span> <span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i_exclu</span> <span class="ow">in</span> <span class="n">extra_exclusions</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">([</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">exclusions</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="ow">or</span> <span class="p">([</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">exclusions</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+                <span class="k">continue</span>
+            <span class="n">kim_hummer_force</span><span class="o">.</span><span class="n">addExclusion</span><span class="p">(</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> 
+    <span class="k">if</span> <span class="n">use_pbc</span><span class="p">:</span>
+        <span class="n">kim_hummer_force</span><span class="o">.</span><span class="n">setNonbondedMethod</span><span class="p">(</span><span class="n">kim_hummer_force</span><span class="o">.</span><span class="n">CutoffPeriodic</span><span class="p">)</span>
+        <span class="n">kim_hummer_force</span><span class="o">.</span><span class="n">setCutoffDistance</span><span class="p">(</span><span class="n">cutoff</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sigma_map</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">cutoff</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">kim_hummer_force</span><span class="o">.</span><span class="n">setNonbondedMethod</span><span class="p">(</span><span class="n">kim_hummer_force</span><span class="o">.</span><span class="n">NoCutoff</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">kim_hummer_force</span><span class="o">.</span><span class="n">setNonbondedMethod</span><span class="p">(</span><span class="n">kim_hummer_force</span><span class="o">.</span><span class="n">CutoffNonPeriodic</span><span class="p">)</span>
+        <span class="n">kim_hummer_force</span><span class="o">.</span><span class="n">setCutoffDistance</span><span class="p">(</span><span class="n">cutoff</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sigma_map</span><span class="p">))</span>
+    <span class="n">kim_hummer_force</span><span class="o">.</span><span class="n">setForceGroup</span><span class="p">(</span><span class="n">force_group</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">kim_hummer_force</span></div>
+
+
+<div class="viewcode-block" id="ashbaugh_hatch">
+<a class="viewcode-back" href="../../../../api_functionterm.html#openaicg2.forcefield.functionterms.ashbaugh_hatch">[docs]</a>
+<span class="k">def</span> <span class="nf">ashbaugh_hatch</span><span class="p">(</span><span class="n">atom_resi_type</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">,</span> <span class="n">sigma_map</span><span class="p">,</span><span class="n">lambda_map</span><span class="p">,</span> <span class="n">exclusions</span><span class="p">,</span><span class="n">extra_exclusions</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">use_pbc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">cutoff</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">force_group</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ashbaugh hatch potential that is a non-specific and long-range interactoin bewteen amino acid driven by their hydrophobic, aromatic, or electrostatic character, </span>
+<span class="sd">    which is a modified LJ type energy function and reference from &quot;Protein Science, 2021, 30(7): 1371-1379.&quot;. </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    atom_resi_type: list, str </span>
+<span class="sd">        the residue type of all atoms</span>
+<span class="sd">    </span>
+<span class="sd">    epsilon: array</span>
+<span class="sd">        the strength of specific residue pair</span>
+
+<span class="sd">    sigma_map: array</span>
+<span class="sd">        the rest length of specific residue pair</span>
+<span class="sd">    </span>
+<span class="sd">    exclusions: list</span>
+<span class="sd">        particular pairs of particles whose interactions should be omitted from force and energy calculations.</span>
+<span class="sd">    </span>
+<span class="sd">    extra_exclusions: list</span>
+<span class="sd">        This represents the extra particle pairs that are neglected in the calculation of the potential.</span>
+
+<span class="sd">    use_pbc: bool, optional</span>
+<span class="sd">        Whether use periodic boundary conditions.  If False (default),then pbc would not apply to force.</span>
+<span class="sd">    </span>
+<span class="sd">    cutoff: float</span>
+<span class="sd">        cutoff = truncated distance / rest length. If cutoff is None, the potential will not be trancated.</span>
+
+<span class="sd">    force_group: int</span>
+<span class="sd">        Force group.</span>
+<span class="sd">    </span>
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    Ash_Hat_contacts: Force</span>
+<span class="sd">        OpenMM Force object</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+    <span class="n">num_type_resi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">sigma_map</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">lj_at_cutoff</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">epsilon</span><span class="o">*</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">cutoff</span><span class="p">)</span><span class="o">**</span><span class="mi">12</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">cutoff</span><span class="p">)</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
+    <span class="n">Ash_Hat_contacts</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">CustomNonbondedForce</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;energy;</span>
+<span class="s2">               energy=atom_pair_type*AH;</span>
+<span class="s2">               AH=(f1+f2-offset)*step(4*sigma_ah-r);</span>
+<span class="s2">               offset=lambda_ah*</span><span class="si">{</span><span class="n">lj_at_cutoff</span><span class="si">}</span><span class="s2">;</span>
+<span class="s2">               f1=(lj+(1-lambda_ah)*</span><span class="si">{</span><span class="n">epsilon</span><span class="si">}</span><span class="s2">)*step(2^(1/6)*sigma_ah-r);</span>
+<span class="s2">               f2=lambda_ah*lj*step(r-2^(1/6)*sigma_ah);</span>
+<span class="s2">               lj=4*</span><span class="si">{</span><span class="n">epsilon</span><span class="si">}</span><span class="s2">*(lj12 + lj6);</span>
+<span class="s2">               lj12=(sigma_ah/r)^12;</span>
+<span class="s2">               lj6=-(sigma_ah/r)^6;</span>
+<span class="s2">               sigma_ah=sigma_ah_map(resi_type1, resi_type2);</span>
+<span class="s2">               lambda_ah=lambda_ah_map(resi_type1, resi_type2);</span>
+<span class="s2">               atom_pair_type=atom_type_map(atom_type1,atom_type2);</span>
+<span class="s2">               &quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="n">discrete_2d_sigma_ah_map</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">Discrete2DFunction</span><span class="p">(</span><span class="n">num_type_resi</span><span class="p">,</span> <span class="n">num_type_resi</span><span class="p">,</span> <span class="n">sigma_map</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+    <span class="n">discrete_2d_lambda_ah_map</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">Discrete2DFunction</span><span class="p">(</span><span class="n">num_type_resi</span><span class="p">,</span> <span class="n">num_type_resi</span><span class="p">,</span> <span class="n">lambda_map</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+    <span class="n">Ash_Hat_contacts</span><span class="o">.</span><span class="n">addTabulatedFunction</span><span class="p">(</span><span class="s1">&#39;sigma_ah_map&#39;</span><span class="p">,</span> <span class="n">discrete_2d_sigma_ah_map</span><span class="p">)</span>
+    <span class="n">Ash_Hat_contacts</span><span class="o">.</span><span class="n">addTabulatedFunction</span><span class="p">(</span><span class="s1">&#39;lambda_ah_map&#39;</span><span class="p">,</span> <span class="n">discrete_2d_lambda_ah_map</span><span class="p">)</span>
+    <span class="n">Ash_Hat_contacts</span><span class="o">.</span><span class="n">addPerParticleParameter</span><span class="p">(</span><span class="s1">&#39;resi_type&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ai</span> <span class="ow">in</span> <span class="n">atom_resi_type</span><span class="p">:</span>
+        <span class="n">Ash_Hat_contacts</span><span class="o">.</span><span class="n">addParticle</span><span class="p">([</span><span class="n">ai</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i_exclu</span> <span class="ow">in</span> <span class="n">exclusions</span><span class="p">:</span>
+        <span class="n">Ash_Hat_contacts</span><span class="o">.</span><span class="n">addExclusion</span><span class="p">(</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">extra_exclusions</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i_exclu</span> <span class="ow">in</span> <span class="n">extra_exclusions</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">([</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">exclusions</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="ow">or</span> <span class="p">([</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">exclusions</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+                <span class="k">continue</span>
+            <span class="n">Ash_Hat_contacts</span><span class="o">.</span><span class="n">addExclusion</span><span class="p">(</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> 
+    <span class="k">if</span> <span class="n">use_pbc</span><span class="p">:</span>
+        <span class="n">Ash_Hat_contacts</span><span class="o">.</span><span class="n">setNonbondedMethod</span><span class="p">(</span><span class="n">Ash_Hat_contacts</span><span class="o">.</span><span class="n">CutoffPeriodic</span><span class="p">)</span>
+        <span class="n">Ash_Hat_contacts</span><span class="o">.</span><span class="n">setCutoffDistance</span><span class="p">(</span><span class="n">cutoff</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sigma_map</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">cutoff</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">Ash_Hat_contacts</span><span class="o">.</span><span class="n">setNonbondedMethod</span><span class="p">(</span><span class="n">Ash_Hat_contacts</span><span class="o">.</span><span class="n">NoCutoff</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">Ash_Hat_contacts</span><span class="o">.</span><span class="n">setNonbondedMethod</span><span class="p">(</span><span class="n">Ash_Hat_contacts</span><span class="o">.</span><span class="n">CutoffNonPeriodic</span><span class="p">)</span>
+        <span class="n">Ash_Hat_contacts</span><span class="o">.</span><span class="n">setCutoffDistance</span><span class="p">(</span><span class="n">cutoff</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sigma_map</span><span class="p">))</span>
+    <span class="n">Ash_Hat_contacts</span><span class="o">.</span><span class="n">setForceGroup</span><span class="p">(</span><span class="n">force_group</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Ash_Hat_contacts</span></div>
+
+
+<div class="viewcode-block" id="excluded_term">
+<a class="viewcode-back" href="../../../../api_functionterm.html#openaicg2.forcefield.functionterms.excluded_term">[docs]</a>
+<span class="k">def</span> <span class="nf">excluded_term</span><span class="p">(</span><span class="n">atom_types</span><span class="p">,</span><span class="n">epsilon_map</span><span class="p">,</span><span class="n">sigma_map</span><span class="p">,</span><span class="n">exclusions</span><span class="p">,</span><span class="n">extra_exclusions</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">use_pbc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">cutoff</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span><span class="n">force_group</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An excluded interaction between atoms is implemented to prevent overlap.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    atom_type: list, int </span>
+<span class="sd">        Atom type.</span>
+<span class="sd">    </span>
+<span class="sd">    epsilon_map: array</span>
+<span class="sd">        the strength of specific residue pair</span>
+
+<span class="sd">    sigma_map: array</span>
+<span class="sd">        the rest length of specific residue pair</span>
+<span class="sd">    </span>
+<span class="sd">    exclusions: list</span>
+<span class="sd">        particular pairs of particles whose interactions should be omitted from force and energy calculations.</span>
+<span class="sd">    </span>
+<span class="sd">    extra_exclusions: list</span>
+<span class="sd">        This represents the extra particle pairs that are neglected in the calculation of the potential.</span>
+
+<span class="sd">    use_pbc: bool, optional</span>
+<span class="sd">        Whether use periodic boundary conditions.  If False (default),then pbc would not apply to force.</span>
+
+<span class="sd">    cutoff: float</span>
+<span class="sd">        cutoff = truncated distance / rest length. If cutoff is None, the potential will not be trancated.</span>
+<span class="sd">    </span>
+<span class="sd">    force_group: int</span>
+<span class="sd">        Force group.</span>
+<span class="sd">    </span>
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    excluded_force: Force</span>
+<span class="sd">        OpenMM Force object    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">num_type_atom</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">epsilon_map</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">excluded_force</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">CustomNonbondedForce</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&#39;&#39;step(</span><span class="si">{</span><span class="n">cutoff</span><span class="si">}</span><span class="s1">*sig-r)*eps*(sig/r)^12;</span>
+<span class="s1">                                              eps=epsilon(atom_type1,atom_type2);</span>
+<span class="s1">                                              sig=sigma(atom_type1,atom_type2);&#39;&#39;&#39;</span><span class="p">)</span><span class="c1">#;ex_resi=(step(abs(ex_resi1-ex_resi2)-3))&#39;) </span>
+    <span class="n">excluded_force</span><span class="o">.</span><span class="n">addTabulatedFunction</span><span class="p">(</span><span class="s1">&#39;epsilon&#39;</span><span class="p">,</span> <span class="n">mm</span><span class="o">.</span><span class="n">Discrete2DFunction</span><span class="p">(</span><span class="n">num_type_atom</span><span class="p">,</span><span class="n">num_type_atom</span><span class="p">,</span><span class="n">epsilon_map</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span>
+    <span class="n">excluded_force</span><span class="o">.</span><span class="n">addTabulatedFunction</span><span class="p">(</span><span class="s1">&#39;sigma&#39;</span><span class="p">,</span> <span class="n">mm</span><span class="o">.</span><span class="n">Discrete2DFunction</span><span class="p">(</span><span class="n">num_type_atom</span><span class="p">,</span><span class="n">num_type_atom</span><span class="p">,</span><span class="n">sigma_map</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span>
+    <span class="n">excluded_force</span><span class="o">.</span><span class="n">addPerParticleParameter</span><span class="p">(</span><span class="s1">&#39;atom_type&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ai</span> <span class="ow">in</span> <span class="n">atom_types</span><span class="p">:</span>
+        <span class="n">excluded_force</span><span class="o">.</span><span class="n">addParticle</span><span class="p">([</span><span class="n">ai</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i_exclu</span> <span class="ow">in</span> <span class="n">exclusions</span><span class="p">:</span>
+        <span class="n">excluded_force</span><span class="o">.</span><span class="n">addExclusion</span><span class="p">(</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">extra_exclusions</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i_exclu</span> <span class="ow">in</span> <span class="n">extra_exclusions</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">([</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">exclusions</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="ow">or</span> <span class="p">([</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">exclusions</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+                <span class="k">continue</span>
+            <span class="n">excluded_force</span><span class="o">.</span><span class="n">addExclusion</span><span class="p">(</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> 
+    <span class="k">if</span> <span class="n">use_pbc</span><span class="p">:</span>
+        <span class="n">excluded_force</span><span class="o">.</span><span class="n">setNonbondedMethod</span><span class="p">(</span><span class="n">excluded_force</span><span class="o">.</span><span class="n">CutoffPeriodic</span><span class="p">)</span>
+        <span class="n">excluded_force</span><span class="o">.</span><span class="n">setCutoffDistance</span><span class="p">(</span><span class="n">cutoff</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sigma_map</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">cutoff</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">excluded_force</span><span class="o">.</span><span class="n">setNonbondedMethod</span><span class="p">(</span><span class="n">excluded_force</span><span class="o">.</span><span class="n">NoCutoff</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">excluded_force</span><span class="o">.</span><span class="n">setNonbondedMethod</span><span class="p">(</span><span class="n">excluded_force</span><span class="o">.</span><span class="n">CutoffNonPeriodic</span><span class="p">)</span>
+        <span class="n">excluded_force</span><span class="o">.</span><span class="n">setCutoffDistance</span><span class="p">(</span><span class="n">cutoff</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sigma_map</span><span class="p">))</span>
+    <span class="n">excluded_force</span><span class="o">.</span><span class="n">setForceGroup</span><span class="p">(</span><span class="n">force_group</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">excluded_force</span></div>
+
+
+<div class="viewcode-block" id="kh_and_ex_term">
+<a class="viewcode-back" href="../../../../api_functionterm.html#openaicg2.forcefield.functionterms.kh_and_ex_term">[docs]</a>
+<span class="k">def</span> <span class="nf">kh_and_ex_term</span><span class="p">(</span><span class="n">resi_type_list</span><span class="p">,</span><span class="n">atom_type_list</span><span class="p">,</span><span class="n">epsilon_map</span><span class="p">,</span><span class="n">sigma_map</span><span class="p">,</span><span class="n">atom_type_map</span><span class="p">,</span><span class="n">exclusions</span><span class="p">,</span><span class="n">extra_exclusions</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">use_pbc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">cutoff_kh</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span><span class="n">cutoff_ex</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span><span class="n">force_group</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function implements kim-hummer and excluded potential.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    resi_type_list: int</span>
+<span class="sd">        residual type.</span>
+
+<span class="sd">    atom_type_list: int </span>
+<span class="sd">        Atom type.</span>
+<span class="sd">    </span>
+<span class="sd">    epsilon_map: array</span>
+<span class="sd">        the strength of specific atom pair</span>
+
+<span class="sd">    sigma_map: array</span>
+<span class="sd">        the rest length of specific atom pair</span>
+<span class="sd">    </span>
+<span class="sd">    exclusions: list</span>
+<span class="sd">        particular pairs of particles whose interactions should be omitted from force and energy calculations.</span>
+<span class="sd">    </span>
+<span class="sd">    extra_exclusions: list</span>
+<span class="sd">        This represents the extra particle pairs that are neglected in the calculation of the potential.</span>
+
+<span class="sd">    use_pbc: bool, optional</span>
+<span class="sd">        Whether use periodic boundary conditions.  If False (default),then pbc would not apply to force.</span>
+
+<span class="sd">    cutoff_kh: float</span>
+<span class="sd">        cutoff for kim-hummer potential.</span>
+<span class="sd">        cutoff = truncated distance / rest length. If cutoff is None, the potential will not be trancated.</span>
+<span class="sd">    </span>
+<span class="sd">    cutoff_ex: float</span>
+<span class="sd">        cutoff for excluded potential.</span>
+<span class="sd">        cutoff = truncated distance / rest length. If cutoff is None, the potential will not be trancated.</span>
+<span class="sd"> </span>
+<span class="sd">    force_group: int</span>
+<span class="sd">        Force group.</span>
+<span class="sd">    </span>
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    KH_ex_force: Force</span>
+<span class="sd">        OpenMM Force object   </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">num_type_resi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">epsilon_map</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">num_atom_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">atom_type_map</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">energy_func_part1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;  rep= f1 + f2-delta(r-sig*2^(1/6))*abs(eps);</span>
+<span class="s2">                                   f1 = step(sig*2^(1/6)-r)*(lj+2*abs(eps));</span>
+<span class="s2">                                   f2 = -step(r-sig*2^(1/6))*lj;</span>
+<span class="s2">                                   lj=4*abs(eps)*(lj12+lj6);</span>
+<span class="s2">                                   ex=abs(eps)*lj12; </span>
+<span class="s2">                                   lj12=(sig/r)^12;lj6=-(sig/r)^6;</span>
+<span class="s2">                                   eps=epsilon(resi_type1,resi_type2);</span>
+<span class="s2">                                   sig=sigma(resi_type1,resi_type2);</span>
+<span class="s2">                                   atom_type=atom_type_map(atom_type1,atom_type2);&quot;&quot;&quot;</span>
+<<<<<<< HEAD
+
+
+    <span class="k">if</span> <span class="n">cutoff_kh</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">cutoff_ex</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
+        <span class="n">KH_and_ex_ener_func</span> <span class="o">=</span>  <span class="sa">f</span><span class="s2">&quot;&quot;&quot;(1-atom_type)*step(</span><span class="si">{</span><span class="n">cutoff_kh</span><span class="si">}</span><span class="s2">*sig-r)*(lj*(1-step(eps)) + step(eps)*rep) + atom_type*step(</span><span class="si">{</span><span class="n">cutoff_ex</span><span class="si">}</span><span class="s2">*sig-r)*ex;&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">energy_func_part1</span>
+    <span class="k">elif</span> <span class="n">cutoff_kh</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">cutoff_ex</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">KH_and_ex_ener_func</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;(1-atom_type)*(lj*(1-step(eps)) + step(eps)*rep) + atom_type*ex;&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">energy_func_part1</span>
+
+=======
+    <span class="k">if</span> <span class="n">cutoff_kh</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">cutoff_ex</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
+        <span class="n">KH_and_ex_ener_func</span> <span class="o">=</span>  <span class="sa">f</span><span class="s2">&quot;&quot;&quot;(1-atom_type)*step(</span><span class="si">{</span><span class="n">cutoff_kh</span><span class="si">}</span><span class="s2">*sig-r)*(lj*(1-step(eps)) + step(eps)*rep) + atom_type*step(</span><span class="si">{</span><span class="n">cutoff_ex</span><span class="si">}</span><span class="s2">*sig-r)*ex;&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">energy_func_part1</span>
+    <span class="k">elif</span> <span class="n">cutoff_kh</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">cutoff_ex</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">KH_and_ex_ener_func</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;(1-atom_type)*(lj*(1-step(eps)) + step(eps)*rep)+ atom_type*ex;&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">energy_func_part1</span>
+>>>>>>> 7d869af747e610d030e8a74c9bf8e1866d35c40c
+
+    <span class="n">KH_ex_force</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">CustomNonbondedForce</span><span class="p">(</span><span class="n">KH_and_ex_ener_func</span><span class="p">)</span>
+    <span class="n">KH_ex_force</span><span class="o">.</span><span class="n">addTabulatedFunction</span><span class="p">(</span><span class="s1">&#39;epsilon&#39;</span><span class="p">,</span> <span class="n">mm</span><span class="o">.</span><span class="n">Discrete2DFunction</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">num_type_resi</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">num_type_resi</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">epsilon_map</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span>
+    <span class="n">KH_ex_force</span><span class="o">.</span><span class="n">addTabulatedFunction</span><span class="p">(</span><span class="s1">&#39;sigma&#39;</span><span class="p">,</span><span class="n">mm</span><span class="o">.</span><span class="n">Discrete2DFunction</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">num_type_resi</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">num_type_resi</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">sigma_map</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span>
+    <span class="n">KH_ex_force</span><span class="o">.</span><span class="n">addTabulatedFunction</span><span class="p">(</span><span class="s1">&#39;atom_type_map&#39;</span><span class="p">,</span><span class="n">mm</span><span class="o">.</span><span class="n">Discrete2DFunction</span><span class="p">(</span><span class="n">num_atom_type</span><span class="p">,</span><span class="n">num_atom_type</span><span class="p">,</span><span class="n">atom_type_map</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span>
+    <span class="n">KH_ex_force</span><span class="o">.</span><span class="n">addPerParticleParameter</span><span class="p">(</span><span class="s1">&#39;resi_type&#39;</span><span class="p">)</span>
+    <span class="n">KH_ex_force</span><span class="o">.</span><span class="n">addPerParticleParameter</span><span class="p">(</span><span class="s1">&#39;atom_type&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">resi_type</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">resi_type_list</span><span class="p">):</span>
+        <span class="n">KH_ex_force</span><span class="o">.</span><span class="n">addParticle</span><span class="p">([</span><span class="n">resi_type</span><span class="p">,</span><span class="n">atom_type_list</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+    <span class="k">for</span> <span class="n">i_exclu</span> <span class="ow">in</span> <span class="n">exclusions</span><span class="p">:</span>
+        <span class="n">KH_ex_force</span><span class="o">.</span><span class="n">addExclusion</span><span class="p">(</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">extra_exclusions</span> <span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i_exclu</span> <span class="ow">in</span> <span class="n">extra_exclusions</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">([</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">exclusions</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="ow">or</span> <span class="p">([</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">exclusions</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+                <span class="k">continue</span>
+            <span class="n">KH_ex_force</span><span class="o">.</span><span class="n">addExclusion</span><span class="p">(</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> 
+    <span class="k">if</span> <span class="n">use_pbc</span><span class="p">:</span>
+        <span class="n">KH_ex_force</span><span class="o">.</span><span class="n">setNonbondedMethod</span><span class="p">(</span><span class="n">KH_ex_force</span><span class="o">.</span><span class="n">CutoffPeriodic</span><span class="p">)</span>
+        <span class="n">KH_ex_force</span><span class="o">.</span><span class="n">setCutoffDistance</span><span class="p">(</span><span class="n">cutoff_kh</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sigma_map</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">cutoff_kh</span> <span class="o">==</span><span class="kc">None</span> <span class="ow">or</span> <span class="n">cutoff_ex</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">KH_ex_force</span><span class="o">.</span><span class="n">setNonbondedMethod</span><span class="p">(</span><span class="n">KH_ex_force</span><span class="o">.</span><span class="n">NoCutoff</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">KH_ex_force</span><span class="o">.</span><span class="n">setNonbondedMethod</span><span class="p">(</span><span class="n">KH_ex_force</span><span class="o">.</span><span class="n">CutoffNonPeriodic</span><span class="p">)</span>
+        <span class="n">KH_ex_force</span><span class="o">.</span><span class="n">setCutoffDistance</span><span class="p">(</span><span class="n">cutoff_kh</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sigma_map</span><span class="p">))</span>
+    <span class="n">KH_ex_force</span><span class="o">.</span><span class="n">setForceGroup</span><span class="p">(</span><span class="n">force_group</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">KH_ex_force</span></div>
+
+
+<div class="viewcode-block" id="debye_Huckel_bond_form">
+<a class="viewcode-back" href="../../../../api_functionterm.html#openaicg2.forcefield.functionterms.debye_Huckel_bond_form">[docs]</a>
+<span class="k">def</span> <span class="nf">debye_Huckel_bond_form</span><span class="p">(</span><span class="n">charge</span><span class="p">,</span><span class="n">exclusions</span><span class="p">,</span><span class="n">dieletric_constant</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span><span class="n">ion_strength</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span><span class="n">T</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span><span class="n">use_pbc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">cutoff</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">force_group</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;a Debye-Huckel potential is acheived by CustomBondForce</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    charge: pd.DataFrame</span>
+<span class="sd">        include the index and charge quatity of pair atom </span>
+<span class="sd">    </span>
+<span class="sd">    exclusions: list</span>
+<span class="sd">        particular pairs of particles whose interactions should be omitted from force and energy calculations.</span>
+<span class="sd">    </span>
+<span class="sd">    dieletric_constant: float</span>
+<span class="sd">        dieletric constant</span>
+
+<span class="sd">    ion_strength: float, unit is mol/L</span>
+<span class="sd">        salt-conentratoin,the default value 0.02 is correspond 20mM/L NaCl and ion_strength I=1 for 1M/L NaCl</span>
+<span class="sd">    </span>
+<span class="sd">    T: float, unit.kelvin</span>
+<span class="sd">        temperatur</span>
+<span class="sd">    </span>
+<span class="sd">    use_pbc: bool, optional</span>
+<span class="sd">        Whether use periodic boundary conditions.  If False (default),then pbc would not apply to force.</span>
+
+<span class="sd">    cutoff: float</span>
+<span class="sd">        ele_cutoff = (truncated distane/lamdaD). lamdaD is so-called Debye length</span>
+
+<span class="sd">    force_group: int</span>
+<span class="sd">        Force group.</span>
+<span class="sd">        </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">epsilon_0</span> <span class="o">=</span> <span class="mf">8.8542e-12</span> <span class="c1">#unit.farad/unit.meter c/(m*V); electric contant</span>
+    <span class="n">lamdaD</span> <span class="o">=</span> <span class="p">(</span><span class="n">epsilon_0</span><span class="o">*</span><span class="mf">1.380649e-23</span><span class="o">*</span><span class="mf">1e17</span><span class="o">*</span><span class="n">dieletric_constant</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">6.02e23</span> <span class="o">*</span><span class="n">ion_strength</span><span class="o">*</span> <span class="p">(</span><span class="mf">1.602e-19</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">**</span><span class="mf">0.5</span><span class="o">/</span><span class="mi">10</span> <span class="c1">#*unit.nanometer # Debye length</span>
+    <span class="n">coeff_eps</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.602e-19</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="mf">1e9</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">epsilon_0</span><span class="o">*</span><span class="n">dieletric_constant</span><span class="o">*</span><span class="mf">6.9478e-21</span><span class="p">)</span>
+    <span class="n">energy_func</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;coeff_1*charge1*charge2*exp(-r/lamdaD)/r&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">cutoff</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">energy_func</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;step(</span><span class="si">{</span><span class="n">lamdaD</span><span class="o">*</span><span class="n">cutoff</span><span class="si">}</span><span class="s1">-r)*&#39;&#39;&#39;</span> <span class="o">+</span> <span class="n">energy_func</span> 
+    <span class="n">dh_force</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">CustomBondForce</span><span class="p">(</span><span class="n">energy_func</span><span class="p">)</span>
+    <span class="n">dh_force</span><span class="o">.</span><span class="n">addPerBondParameter</span><span class="p">(</span><span class="s1">&#39;charge1&#39;</span><span class="p">)</span>
+    <span class="n">dh_force</span><span class="o">.</span><span class="n">addPerBondParameter</span><span class="p">(</span><span class="s1">&#39;charge2&#39;</span><span class="p">)</span>
+    <span class="n">dh_force</span><span class="o">.</span><span class="n">addGlobalParameter</span><span class="p">(</span><span class="s1">&#39;coeff_1&#39;</span><span class="p">,</span><span class="n">coeff_eps</span><span class="o">*</span><span class="n">unit</span><span class="o">.</span><span class="n">kilocalorie_per_mole</span><span class="o">*</span><span class="n">unit</span><span class="o">.</span><span class="n">nanometer</span><span class="p">)</span>
+    <span class="n">dh_force</span><span class="o">.</span><span class="n">addGlobalParameter</span><span class="p">(</span><span class="s1">&#39;lamdaD&#39;</span><span class="p">,</span><span class="n">lamdaD</span><span class="o">*</span><span class="n">unit</span><span class="o">.</span><span class="n">nanometer</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i_ele</span> <span class="ow">in</span> <span class="n">charge</span><span class="p">:</span>
+        <span class="c1"># set exclusion for exluding neighbor atom</span>
+        <span class="k">if</span> <span class="p">([</span><span class="n">i_ele</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i_ele</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">exclusions</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="ow">or</span> <span class="p">([</span><span class="n">i_ele</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">i_ele</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">exclusions</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+           <span class="k">continue</span>
+        <span class="n">dh_force</span><span class="o">.</span><span class="n">addBond</span><span class="p">(</span><span class="n">i_ele</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i_ele</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">i_ele</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+    <span class="n">dh_force</span><span class="o">.</span><span class="n">setUsesPeriodicBoundaryConditions</span><span class="p">(</span><span class="n">use_pbc</span><span class="p">)</span>
+    <span class="n">dh_force</span><span class="o">.</span><span class="n">setForceGroup</span><span class="p">(</span><span class="n">force_group</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dh_force</span></div>
+
+
+<div class="viewcode-block" id="debye_Huckel_nonbonded_form">
+<a class="viewcode-back" href="../../../../api_functionterm.html#openaicg2.forcefield.functionterms.debye_Huckel_nonbonded_form">[docs]</a>
+<span class="k">def</span> <span class="nf">debye_Huckel_nonbonded_form</span><span class="p">(</span><span class="n">charge</span><span class="p">,</span><span class="n">exclusions</span><span class="p">,</span><span class="n">dieletric_constant</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span><span class="n">ion_strength</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span><span class="n">T</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span><span class="n">use_pbc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">cutoff</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">force_group</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;a Debye-Huckel potential is acheived by CustomNonbondedForce</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    charge: list</span>
+<span class="sd">        charge of each atoms</span>
+<span class="sd">    </span>
+<span class="sd">    exclusions: list</span>
+<span class="sd">        particular pairs of particles whose interactions should be omitted from force and energy calculations.</span>
+<span class="sd">    </span>
+<span class="sd">    dieletric_constant: float</span>
+<span class="sd">        dieletric constant</span>
+
+<span class="sd">    ion_strength: float, unit is mol/L</span>
+<span class="sd">        salt-conentratoin,the default value 0.02 is correspond 20mM/L NaCl and ion_strength I=1 for 1M/L NaCl</span>
+<span class="sd">    </span>
+<span class="sd">    T: float, unit.kelvin</span>
+<span class="sd">        temperature</span>
+
+<span class="sd">    use_pbc: bool, optional</span>
+<span class="sd">        Whether use periodic boundary conditions.  If False (default),then pbc would not apply to force.</span>
+<span class="sd">        </span>
+<span class="sd">    cutoff: float</span>
+<span class="sd">        ele_cutoff = (truncated distane/lamdaD). lamdaD is so-called Debye length</span>
+<span class="sd">    </span>
+<span class="sd">    force_group: int</span>
+<span class="sd">        Force group.</span>
+<span class="sd">    </span>
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    deb_huc_force: Force</span>
+<span class="sd">        OpenMM Force object  </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">epsilon_0</span> <span class="o">=</span> <span class="mf">8.8542e-12</span> <span class="c1">#unit.farad/unit.meter c/(m*V); electric contant</span>
+    <span class="n">lamdaD</span> <span class="o">=</span> <span class="p">(</span><span class="n">epsilon_0</span><span class="o">*</span><span class="mf">1.380649e-23</span><span class="o">*</span><span class="mf">1e17</span><span class="o">*</span><span class="n">dieletric_constant</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">6.02e23</span> <span class="o">*</span><span class="n">ion_strength</span><span class="o">*</span> <span class="p">(</span><span class="mf">1.602e-19</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">**</span><span class="mf">0.5</span><span class="o">/</span><span class="mi">10</span> <span class="c1">#*unit.nanometer # Debye length</span>
+    <span class="n">coeff_eps</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.602e-19</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="mf">1e9</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">epsilon_0</span><span class="o">*</span><span class="n">dieletric_constant</span><span class="o">*</span><span class="mf">6.9478e-21</span><span class="p">)</span> 
+    <span class="n">dh_force_nonbonded</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">CustomNonbondedForce</span><span class="p">(</span><span class="s1">&#39;step(ele_cutoff-r)*coeff_1*charge1*charge2*exp(-r/lamdaD)/r&#39;</span><span class="p">)</span>
+    <span class="n">dh_force_nonbonded</span><span class="o">.</span><span class="n">addPerParticleParameter</span><span class="p">(</span><span class="s1">&#39;charge1&#39;</span><span class="p">)</span>
+    <span class="n">dh_force_nonbonded</span><span class="o">.</span><span class="n">addPerParticleParameter</span><span class="p">(</span><span class="s1">&#39;charge2&#39;</span><span class="p">)</span>
+    <span class="n">dh_force_nonbonded</span><span class="o">.</span><span class="n">addGlobalParameter</span><span class="p">(</span><span class="s1">&#39;coeff_1&#39;</span><span class="p">,</span><span class="n">coeff_eps</span><span class="o">*</span><span class="n">unit</span><span class="o">.</span><span class="n">kilocalorie_per_mole</span><span class="o">*</span><span class="n">unit</span><span class="o">.</span><span class="n">nanometer</span><span class="p">)</span>
+    <span class="n">dh_force_nonbonded</span><span class="o">.</span><span class="n">addGlobalParameter</span><span class="p">(</span><span class="s1">&#39;lamdaD&#39;</span><span class="p">,</span><span class="n">lamdaD</span><span class="o">*</span><span class="n">unit</span><span class="o">.</span><span class="n">nanometer</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">iq</span> <span class="ow">in</span> <span class="n">charge</span><span class="p">:</span>
+        <span class="n">dh_force_nonbonded</span><span class="o">.</span><span class="n">addParticle</span><span class="p">(</span><span class="n">iq</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i_exclu</span> <span class="ow">in</span> <span class="n">exclusions</span><span class="p">:</span>
+        <span class="n">dh_force_nonbonded</span><span class="o">.</span><span class="n">addExclusion</span><span class="p">(</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i_exclu</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">use_pbc</span><span class="p">:</span>
+        <span class="n">dh_force_nonbonded</span><span class="o">.</span><span class="n">setNonbondedMethod</span><span class="p">(</span><span class="n">dh_force_nonbonded</span><span class="o">.</span><span class="n">CutoffPeriodic</span><span class="p">)</span>
+        <span class="n">dh_force_nonbonded</span><span class="o">.</span><span class="n">setCutoffDistance</span><span class="p">(</span><span class="n">lamdaD</span><span class="o">*</span><span class="n">ele_cutoff</span><span class="o">*</span><span class="n">unit</span><span class="o">.</span><span class="n">nanometer</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">cutoff</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dh_force_nonbonded</span><span class="o">.</span><span class="n">setNonbondedMethod</span><span class="p">(</span><span class="n">dh_force_nonbonded</span><span class="o">.</span><span class="n">NonCutoff</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dh_force_nonbonded</span><span class="o">.</span><span class="n">setNonbondedMethod</span><span class="p">(</span><span class="n">dh_force_nonbonded</span><span class="o">.</span><span class="n">CutoffNonPeriodic</span><span class="p">)</span>
+        <span class="n">dh_force_nonbonded</span><span class="o">.</span><span class="n">setCutoffDistance</span><span class="p">(</span><span class="n">lamdaD</span><span class="o">*</span><span class="n">cutoff</span><span class="o">*</span><span class="n">unit</span><span class="o">.</span><span class="n">nanometer</span><span class="p">)</span>
+    <span class="n">dh_force_nonbonded</span><span class="o">.</span><span class="n">setForceGroup</span><span class="p">(</span><span class="n">force_group</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dh_force_nonbonded</span></div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Lujun Zou
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024 Lujun Zou, Wenfei Li.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

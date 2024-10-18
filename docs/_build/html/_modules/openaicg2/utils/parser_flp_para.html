@@ -1,0 +1,590 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openaicg2.utils.parser_flp_para &#8212; OpenAICG2</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../_static/documentation_options.js?v=e1a75a79"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/openaicg2/utils/parser_flp_para';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="OpenAICG2 - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="OpenAICG2 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Welcome to OpenAICG2+’s documentation
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../api_model.html">Model API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api_functionterm.html">Force functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api_utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api_enhance_sampling.html">Enhanced sampling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Example</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../main_sh3.html">Example 1. protein sh3 based on one bead model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../main_amyloid42_gyration.html">Example 2. Simulating the Amyloid <span class="math notranslate nohighlight">\(\beta 42\)</span> monomer.</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/Gowindyer/openaicgdoc" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for openaicg2.utils.parser_flp_para</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">_kcal_to_kj</span> <span class="o">=</span> <span class="mf">4.1840</span>
+
+<div class="viewcode-block" id="parser_flp_para">
+<a class="viewcode-back" href="../../../api_utils.html#openaicg2.utils.parser_flp_para.parser_flp_para">[docs]</a>
+<span class="k">class</span> <span class="nc">parser_flp_para</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">FBA_MIN_ANG</span> <span class="o">=</span> <span class="mf">1.31</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">FBA_MAX_ANG</span> <span class="o">=</span> <span class="mf">2.87</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">FBA_MIN_ANG_FORCE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">30.0</span><span class="c1"># * _kcal_to_kj</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">FBA_MAX_ANG_FORCE</span> <span class="o">=</span> <span class="mf">30.0</span><span class="c1"># * _kcal_to_kj</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flp_bond_dihd_params</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bond_ang_x</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bond_ang_y</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bond_ang_y2</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flp_bond_ang_params</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="parser_flp_para.read_flexible_local_para">
+<a class="viewcode-back" href="../../../api_utils.html#openaicg2.utils.parser_flp_para.parser_flp_para.read_flexible_local_para">[docs]</a>
+    <span class="k">def</span> <span class="nf">read_flexible_local_para</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">path</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        read the parameter file of flexible local potential</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        path : str, </span>
+<span class="sd">            The path of flexible local potential parameter file.ls</span>
+<span class="sd">        </span>
+<span class="sd">        Return</span>
+<span class="sd">        ------</span>
+<span class="sd">        flp_dihd: dictionary, float</span>
+<span class="sd">            This parameters are used to describe the virtural dihedral angle in the disorder region.</span>
+<span class="sd">            Each residue pair has a specific set of parameters. From the first column onwards, These </span>
+<span class="sd">            parameters correspond to the constant term C and coefficients c1, s1, c2, s2, c3, and s3 in </span>
+<span class="sd">            the Fourier fitting formula. Fourier fitting formula: C+c1*cos(theta)+s1*sin(theta)+ c2*cos(2*theta)+s2*sin(2*theta)+</span>
+<span class="sd">            c3*cos(3*theta)+s3*sin(3*theta). </span>
+<span class="sd">        </span>
+<span class="sd">        flp_ang_x: list, float</span>
+<span class="sd">            the angle interval of cubic spline</span>
+
+<span class="sd">        flp_ang_y: dictionary, float, kj/(mol*radin)</span>
+<span class="sd">            The y-value at the endpoint of the interval depends on the residue.</span>
+
+<span class="sd">        flp_ang_y2: dictionary, float, kj/(mol*radin^2)</span>
+<span class="sd">            The second derivative of spline interpolation corresponds to the angle at the interval endpoints.</span>
+<span class="sd">        </span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_flp</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">read_flp</span><span class="p">:</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">line</span> <span class="o">==</span> <span class="s1">&#39;&gt;&gt;&gt;&gt;&#39;</span><span class="p">:</span>
+                    <span class="n">to_read</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="k">continue</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="k">if</span> <span class="n">line</span> <span class="o">==</span> <span class="s1">&#39;&lt;&lt;&lt;&lt; dihedral_angle&#39;</span><span class="p">:</span>
+                    <span class="n">to_read</span> <span class="o">=</span> <span class="s1">&#39;dihd&#39;</span>
+                <span class="k">elif</span> <span class="n">to_read</span> <span class="o">==</span> <span class="s1">&#39;dihd&#39;</span><span class="p">:</span>
+                    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">flp_bond_dihd_params</span><span class="p">[</span><span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> <span class="c1">#* _kcal_to_kj</span>
+                <span class="k">elif</span> <span class="n">line</span> <span class="o">==</span> <span class="s1">&#39;&lt;&lt;&lt;&lt; bond_angle_x&#39;</span><span class="p">:</span>
+                    <span class="n">to_read</span> <span class="o">=</span> <span class="s1">&#39;angle x&#39;</span>
+                <span class="k">elif</span> <span class="n">to_read</span> <span class="o">==</span> <span class="s1">&#39;angle x&#39;</span><span class="p">:</span>
+                    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">bond_ang_x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+                <span class="k">elif</span> <span class="n">line</span> <span class="o">==</span> <span class="s1">&#39;&lt;&lt;&lt;&lt; bond_angle_y&#39;</span><span class="p">:</span>
+                    <span class="n">to_read</span> <span class="o">=</span> <span class="s1">&#39;angle y&#39;</span>
+                <span class="k">elif</span> <span class="n">to_read</span> <span class="o">==</span> <span class="s1">&#39;angle y&#39;</span><span class="p">:</span>
+                    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">bond_ang_y</span><span class="p">[</span><span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> <span class="c1">#* _kcal_to_kj</span>
+                <span class="k">elif</span> <span class="n">line</span> <span class="o">==</span> <span class="s1">&#39;&lt;&lt;&lt;&lt; bond_angle_y2&#39;</span><span class="p">:</span>
+                    <span class="n">to_read</span> <span class="o">=</span> <span class="s1">&#39;angle y2&#39;</span>
+                <span class="k">elif</span> <span class="n">to_read</span> <span class="o">==</span> <span class="s1">&#39;angle y2&#39;</span><span class="p">:</span>
+                    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">bond_ang_y2</span><span class="p">[</span><span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="c1"># * _kcal_to_kj</span></div>
+
+    
+    <span class="c1"># Get parameter for correcting the energy of flexible local angle </span>
+<div class="viewcode-block" id="parser_flp_para.cubic_spline">
+<a class="viewcode-back" href="../../../api_utils.html#openaicg2.utils.parser_flp_para.parser_flp_para.cubic_spline">[docs]</a>
+    <span class="k">def</span> <span class="nf">cubic_spline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">theta</span><span class="p">,</span><span class="n">theta_lo</span><span class="p">,</span><span class="n">theta_hi</span><span class="p">,</span><span class="n">y_lo</span><span class="p">,</span><span class="n">y_hi</span><span class="p">,</span><span class="n">y2_lo</span><span class="p">,</span><span class="n">y2_hi</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The Cubic spline function.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        theta: float</span>
+<span class="sd">            angle</span>
+
+<span class="sd">        theta_lo: float</span>
+<span class="sd">            the low limit of theta</span>
+
+<span class="sd">        theta_hi: float</span>
+<span class="sd">            the high limit of theta</span>
+<span class="sd">        </span>
+<span class="sd">        y_lo: float</span>
+<span class="sd">            the energy value correspond to theta_lo</span>
+
+<span class="sd">        y_hi: float</span>
+<span class="sd">            the energy value correspond to theta_hi</span>
+<span class="sd">        </span>
+<span class="sd">        y2_lo: float</span>
+<span class="sd">            the second-order derivative value of energy correspond to theta_lo</span>
+<span class="sd">        </span>
+<span class="sd">        y2_hi: float</span>
+<span class="sd">            the second-order derivative value of energy correspond to theta_hi</span>
+<span class="sd">        </span>
+<span class="sd">        return</span>
+<span class="sd">        ------</span>
+<span class="sd">        energy: float</span>
+<span class="sd">            the energy of flexible local angle</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">lk</span> <span class="o">=</span> <span class="n">theta_hi</span> <span class="o">-</span> <span class="n">theta_lo</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">theta_hi</span> <span class="o">-</span> <span class="n">theta</span><span class="p">)</span> <span class="o">/</span> <span class="n">lk</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">theta</span> <span class="o">-</span> <span class="n">theta_lo</span><span class="p">)</span> <span class="o">/</span> <span class="n">lk</span>    
+        <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">lk</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">y2_lo</span><span class="o">/</span><span class="mi">6</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">3</span><span class="o">-</span><span class="n">b</span><span class="p">)</span><span class="o">*</span><span class="n">lk</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">y2_hi</span><span class="o">/</span><span class="mi">6</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">y_hi</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">y_lo</span></div>
+
+
+<div class="viewcode-block" id="parser_flp_para.diff_cubic_spline">
+<a class="viewcode-back" href="../../../api_utils.html#openaicg2.utils.parser_flp_para.parser_flp_para.diff_cubic_spline">[docs]</a>
+    <span class="k">def</span> <span class="nf">diff_cubic_spline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">theta</span><span class="p">,</span><span class="n">theta_lo</span><span class="p">,</span><span class="n">theta_hi</span><span class="p">,</span><span class="n">y_lo</span><span class="p">,</span><span class="n">y_hi</span><span class="p">,</span><span class="n">y2_lo</span><span class="p">,</span><span class="n">y2_hi</span><span class="p">):</span>
+        <span class="n">lk</span> <span class="o">=</span> <span class="n">theta_hi</span> <span class="o">-</span> <span class="n">theta_lo</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">theta_hi</span> <span class="o">-</span> <span class="n">theta</span><span class="p">)</span> <span class="o">/</span> <span class="n">lk</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">theta</span> <span class="o">-</span> <span class="n">theta_lo</span><span class="p">)</span> <span class="o">/</span> <span class="n">lk</span>    
+        <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">lk</span><span class="o">*</span><span class="n">y2_lo</span><span class="o">/</span><span class="mi">6</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">lk</span><span class="o">*</span><span class="n">y2_hi</span><span class="o">/</span><span class="mi">6</span> <span class="o">+</span> <span class="n">y_hi</span><span class="o">/</span><span class="n">lk</span> <span class="o">-</span> <span class="n">y_lo</span><span class="o">/</span><span class="n">lk</span></div>
+
+
+<div class="viewcode-block" id="parser_flp_para.correct_flex_ang_force_para">
+<a class="viewcode-back" href="../../../api_utils.html#openaicg2.utils.parser_flp_para.parser_flp_para.correct_flex_ang_force_para">[docs]</a>
+    <span class="k">def</span> <span class="nf">correct_flex_ang_force_para</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">num_bin</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span><span class="n">para</span><span class="p">,</span><span class="n">stepsize</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">):</span>
+        <span class="n">bond_angle_x</span> <span class="o">=</span> <span class="n">para</span><span class="p">[:</span><span class="n">num_bin</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">bond_angle_y</span> <span class="o">=</span> <span class="n">para</span><span class="p">[</span><span class="n">num_bin</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">num_bin</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+        <span class="n">bond_angle_y2</span> <span class="o">=</span> <span class="n">para</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">num_bin</span><span class="o">+</span><span class="mi">1</span><span class="p">):]</span>
+        <span class="c1"># initial the boudary parameter</span>
+        <span class="n">min_theta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">FBA_MIN_ANG</span>
+        <span class="n">max_theta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">FBA_MIN_ANG</span>
+        <span class="n">centre_theta</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">FBA_MAX_ANG</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">FBA_MIN_ANG</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+        <span class="n">min_theta_energy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cubic_spline</span><span class="p">(</span><span class="n">min_theta</span><span class="p">,</span><span class="n">bond_angle_x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">bond_angle_x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">bond_angle_y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">bond_angle_y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">bond_angle_y2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">bond_angle_y2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_bin</span><span class="p">):</span>
+            <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">bond_angle_x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">bond_angle_x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">stepsize</span><span class="p">)</span>
+            <span class="n">energy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cubic_spline</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="n">bond_angle_x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">bond_angle_x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">bond_angle_y</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">bond_angle_y</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">bond_angle_y2</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">bond_angle_y2</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">force</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">diff_cubic_spline</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="n">bond_angle_x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">bond_angle_x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">bond_angle_y</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">bond_angle_y</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">bond_angle_y2</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">bond_angle_y2</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">minimum_energy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">energy</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">mini_ener_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">energy</span><span class="p">)</span>
+                <span class="n">minimum_energy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">([</span><span class="n">minimum_energy</span><span class="p">,</span><span class="n">mini_ener_i</span><span class="p">])</span>
+            <span class="n">index_mini</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">force</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">FBA_MIN_ANG_FORCE</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">index_mini</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+               <span class="n">min_theta</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[</span><span class="n">index_mini</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+               <span class="n">min_theta_energy</span> <span class="o">=</span> <span class="n">energy</span><span class="p">[</span><span class="n">index_mini</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+            <span class="n">index_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">force</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">FBA_MAX_ANG_FORCE</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">index_max</span><span class="p">)</span>  <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">max_theta</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">FBA_MIN_ANG</span><span class="p">:</span>
+                <span class="n">max_theta</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[</span><span class="n">index_max</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+                <span class="k">if</span> <span class="n">max_theta</span> <span class="o">&gt;</span> <span class="n">centre_theta</span><span class="p">:</span>
+                   <span class="n">max_theta_energy</span> <span class="o">=</span> <span class="n">energy</span><span class="p">[</span><span class="n">index_max</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="n">bond_angle_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">bond_angle_x</span><span class="p">)</span>
+        <span class="n">bond_angle_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">bond_angle_y</span><span class="p">)</span> <span class="o">*</span> <span class="n">_kcal_to_kj</span>
+        <span class="n">bond_angle_y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">bond_angle_y2</span><span class="p">)</span> <span class="o">*</span> <span class="n">_kcal_to_kj</span>
+        <span class="n">boundary_para</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">min_theta</span><span class="p">,</span><span class="n">min_theta_energy</span><span class="o">*</span><span class="n">_kcal_to_kj</span><span class="p">,</span><span class="n">max_theta</span><span class="p">,</span><span class="n">max_theta_energy</span><span class="o">*</span><span class="n">_kcal_to_kj</span><span class="p">,</span><span class="n">minimum_energy</span><span class="o">*</span><span class="n">_kcal_to_kj</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+        <span class="n">corr_para</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">bond_angle_x</span><span class="p">,</span><span class="n">bond_angle_y</span><span class="p">,</span><span class="n">bond_angle_y2</span><span class="p">,</span><span class="n">boundary_para</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">corr_para</span></div>
+
+    <span class="c1"># set the flexible local energy corr? for dihedral interaction of backbond</span>
+<div class="viewcode-block" id="parser_flp_para.flexi_dihd_energy">
+<a class="viewcode-back" href="../../../api_utils.html#openaicg2.utils.parser_flp_para.parser_flp_para.flexi_dihd_energy">[docs]</a>
+    <span class="k">def</span>  <span class="nf">flexi_dihd_energy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">theta</span><span class="p">,</span><span class="n">para</span><span class="p">):</span>
+        <span class="k">return</span>  <span class="n">para</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">para</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">para</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">para</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">para</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">theta</span><span class="p">)</span> \
+                <span class="o">+</span> <span class="n">para</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">para</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">theta</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="parser_flp_para.set_flex_dihd_corr">
+<a class="viewcode-back" href="../../../api_utils.html#openaicg2.utils.parser_flp_para.parser_flp_para.set_flex_dihd_corr">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_flex_dihd_corr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">para</span><span class="p">,</span><span class="n">stepsize</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">):</span>
+        <span class="n">theta_lo</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+        <span class="n">theta_hi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+        <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">theta_lo</span><span class="p">,</span><span class="n">theta_hi</span><span class="p">,</span><span class="n">stepsize</span><span class="p">)</span>
+        <span class="n">ener</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">flexi_dihd_energy</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="n">para</span><span class="p">)</span>
+        <span class="n">para_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">para</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">ener</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="n">para_all</span><span class="o">*</span><span class="n">_kcal_to_kj</span></div>
+
+        
+<div class="viewcode-block" id="parser_flp_para.get_corr_flex_ang_para">
+<a class="viewcode-back" href="../../../api_utils.html#openaicg2.utils.parser_flp_para.parser_flp_para.get_corr_flex_ang_para">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_corr_flex_ang_para</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">path</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Obtain the corrected flexible local potential parameters for the bond angle and dihedral angle of any residue</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">read_flexible_local_para</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">residue_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bond_ang_y</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i_resi</span> <span class="ow">in</span> <span class="n">residue_list</span><span class="p">:</span>
+            <span class="n">num_interval</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bond_ang_x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="n">flp_para</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">bond_ang_x</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">bond_ang_y</span><span class="p">[</span><span class="n">i_resi</span><span class="p">],</span><span class="bp">self</span><span class="o">.</span><span class="n">bond_ang_y2</span><span class="p">[</span><span class="n">i_resi</span><span class="p">]),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flp_bond_ang_params</span><span class="p">[</span><span class="n">i_resi</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">correct_flex_ang_force_para</span><span class="p">(</span><span class="n">num_interval</span><span class="p">,</span><span class="n">flp_para</span><span class="p">)</span>
+        <span class="n">residue_pair</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">flp_bond_dihd_params</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i_resi_pair</span> <span class="ow">in</span> <span class="n">residue_pair</span><span class="p">:</span>
+            <span class="n">resi_pair_para</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_flex_dihd_corr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flp_bond_dihd_params</span><span class="p">[</span><span class="n">i_resi_pair</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flp_bond_dihd_params</span><span class="p">[</span><span class="n">i_resi_pair</span><span class="p">]</span> <span class="o">=</span> <span class="n">resi_pair_para</span></div>
+</div>
+
+
+
+            
+
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Lujun Zou
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024 Lujun Zou, Wenfei Li.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

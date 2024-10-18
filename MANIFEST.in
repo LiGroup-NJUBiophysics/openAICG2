@@ -1,0 +1,10 @@
+graft openaicg2
+
+prune */__pycache__
+prune backup
+prune docs
+prune examples
+prune tests
+
+include README.md
+include LICENSE
