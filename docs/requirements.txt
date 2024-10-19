@@ -4,3 +4,4 @@ sphinx-togglebutton>=0.3.2
 sphinxcontrib-applehelp>=1.0.8
 sphinxcontrib-bibtex>=2.6.2
 sphinxcontrib-serializinghtml>=1.1.10
+sphinx-copybutton>=0.5.2
