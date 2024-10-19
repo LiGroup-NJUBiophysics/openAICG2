@@ -15,7 +15,7 @@ release = '0.1'
 bibtex_bibfiles = ['references.bib']
 comments_config = {'hypothesis': False, 'utterances': False}
 exclude_patterns = ['**.ipynb_checkpoints', '.DS_Store', 'Thumbs.db', '_build']
-extensions = ['sphinx.ext.viewcode','sphinx.ext.napoleon','sphinx_togglebutton', 'sphinx_copybutton', 'sphinx_thebe', 'sphinx_comments', 'sphinx.ext.intersphinx', 'sphinx_design', 'sphinx_book_theme', 'sphinx.ext.autodoc','sphinxcontrib.bibtex', 'sphinx_jupyterbook_latex']
+extensions = ['sphinx.ext.viewcode','sphinx.ext.napoleon','sphinx_togglebutton', 'sphinx_copybutton', 'sphinx_thebe', 'sphinx_comments', 'sphinx.ext.intersphinx', 'sphinx_design', 'sphinx_book_theme', 'sphinx.ext.autodoc','sphinxcontrib.bibtex', 'sphinx.ext.napoleon']
 
 # The master toctree document
 master_doc = 'index'
