@@ -1,6 +1,6 @@
 import sys
 
-from openaicg2.forcefield.functionterms.dihedral_terms import native_dihd_term
+from openmicron.forcefield.functionterms.dihedral_terms import native_dihd_term
 
 import openmm as mm
 import numpy as np

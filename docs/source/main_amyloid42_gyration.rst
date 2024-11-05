@@ -12,8 +12,8 @@ This example will demonstrate how to create a two-bead coarse-grained model usin
    from openmm import unit
    import mdtraj as md
    import json
-   from openaicg2.forcefield.aicgmodel import AICG2Model
-   from openaicg2 import utils
+   from openmicron.forcefield.aicgmodel import AICG2Model
+   from openmicron import utils
 
 Load the parameters required for the simulation, including temperature, friction coefficient, time step, total simulation time, total number of steps, trajectory recording interval, output file name, etc.
 

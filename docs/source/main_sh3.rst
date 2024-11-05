@@ -1,6 +1,6 @@
 Example 1. protein sh3 based on one bead model
 ==============================================
-To use this example on your local computer, you need to clone or download the folder example from the GitHub repository of openaicg2.
+To use this example on your local computer, you need to clone or download the folder example from the GitHub repository of openmicron.
 
 .. code-block:: python
    
@@ -11,8 +11,8 @@ To use this example on your local computer, you need to clone or download the fo
    import numpy as np
    import pandas as pd
    import mdtraj as md
-   from openaicg2.forcefield.aicgmodel import AICG2Model
-   from openaicg2 import utils
+   from openmicron.forcefield.aicgmodel import AICG2Model
+   from openmicron import utils
 
 Firstly, initialize the topology from the PDB and PSF files (if the PDB file includes the CONNECT section, you do not need to load the PSF to complete the topology in the PDB). Use the ParserNinfo from utils to parse the native information file to obtain the force field parameters, and store them in the ParserNinfo class variable.
 

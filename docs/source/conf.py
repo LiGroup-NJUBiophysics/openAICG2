@@ -9,7 +9,7 @@ import sys
 sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('../../'))
 
-project = 'openaicg2'
+project = 'openmicron'
 author = 'Lujun Zou'
 copyright = '2024 Lujun Zou, Wenfei Li'
 release = '0.1'

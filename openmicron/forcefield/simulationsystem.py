@@ -6,8 +6,8 @@ import sys
 import os
 import pandas as pd
 
-from openaicg2.utils import RedefineTopology
-from openaicg2 import utils
+from openmicron.utils import RedefineTopology
+from openmicron import utils
 
 __location__ = os.path.dirname(os.path.abspath(__file__))
 _A_to_nm = 0.1

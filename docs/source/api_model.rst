@@ -1,16 +1,16 @@
 Model API
 =========
 
-openaicg2.forcefield.simulationsystem
+openmicron.forcefield.simulationsystem
 -------------------------------------
 
-.. automodule:: openaicg2.forcefield.simulationsystem
+.. automodule:: openmicron.forcefield.simulationsystem
     :members:
     :undoc-members:
 
-openaicg2.forcefield.aicgmodel
+openmicron.forcefield.aicgmodel
 ------------------------------
-.. automodule:: openaicg2.forcefield.aicgmodel
+.. automodule:: openmicron.forcefield.aicgmodel
     :members:
     :show-inheritance:
 

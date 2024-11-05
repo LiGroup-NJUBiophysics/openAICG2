@@ -1,7 +1,7 @@
 import sys
-from openaicg2.forcefield.functionterms.angle_terms import flex_angle_term
-from openaicg2.forcefield.functionterms.dihedral_terms import flex_dihd_term
-from openaicg2.utils import parser_flp_para
+from openmicron.forcefield.functionterms.angle_terms import flex_angle_term
+from openmicron.forcefield.functionterms.dihedral_terms import flex_dihd_term
+from openmicron.utils import parser_flp_para
 import openmm as mm
 import numpy as np
 import pandas as pd

@@ -5,9 +5,9 @@ from openmm import unit
 import sys
 import os
 
-from openaicg2.forcefield.simulationsystem import SimulationSystem
-from openaicg2.forcefield import functionterms
-from openaicg2 import utils
+from openmicron.forcefield.simulationsystem import SimulationSystem
+from openmicron.forcefield import functionterms
+from openmicron import utils
 
 __location__ = os.path.dirname(os.path.abspath(__file__))
 _A_to_nm = 0.1

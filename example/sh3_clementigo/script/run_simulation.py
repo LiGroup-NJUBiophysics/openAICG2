@@ -8,8 +8,8 @@ import mdtraj as md
 import json
 import os 
 
-from openaicg2.forcefield.aicgmodel import AICG2Model
-from openaicg2 import utils 
+from openmicron.forcefield.aicgmodel import AICG2Model
+from openmicron import utils 
 
 T = 300
 tot_simu_steps = 50000000
@@ -24,7 +24,7 @@ psf = md.load_psf('../input/sh3_clementigo.psf')
 bonds = psf._bonds
 top = pdb.topology.to_openmm()
 rdtop = utils.RedefineTopology()
-rdtop.redefine_bond(top,bonds)
+rdtop.setBond(top,bonds)
 
 # load native information
 ParserNinfo=utils.ParserNinfo()

@@ -1,6 +1,6 @@
 import sys
 
-from openaicg2.forcefield.functionterms.nonbonded_terms import oriented_dependent_Hbond_term
+from openmicron.forcefield.functionterms.nonbonded_terms import oriented_dependent_Hbond_term
 
 import openmm as mm
 import numpy as np

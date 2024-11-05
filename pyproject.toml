@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["openaicg2"]
+include = ["openmicron"]
 namespaces = false
 
 [project]
-name = "openaicg2"
+name = "openmicron"
 version = "0.0.1"
 authors = [ 
           { name="ZouLuJun", email="zoulujun@ucas.ac.cn"},
@@ -29,7 +29,7 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://gowindyer.github.io/openaicgdoc"
+Homepage = "https://gowindyer.github.io/openmicron"
 
 [tool.setuptools]
 include-package-data = true
